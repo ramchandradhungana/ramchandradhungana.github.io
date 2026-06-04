@@ -211,29 +211,6 @@ a {
   color: var(--white);
 }
 
-.hero-portrait {
-  position: absolute;
-  right: max(28px, calc((100vw - var(--max-width)) / 2));
-  bottom: 98px;
-  z-index: 1;
-  width: clamp(180px, 18vw, 260px);
-  margin: 0;
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  border-radius: 8px;
-  background: rgba(251, 252, 251, 0.12);
-  box-shadow: 0 18px 55px rgba(10, 28, 24, 0.28);
-  backdrop-filter: blur(10px);
-}
-
-.hero-portrait img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 6px;
-}
-
 .eyebrow {
   margin: 0 0 12px;
   color: var(--clay);
@@ -659,12 +636,7 @@ h1 {
     min-height: 78vh;
     padding-top: 146px;
   }
-
-  .hero-portrait {
-    display: none;
-  }
-
-  .hero-overlay {
+.hero-overlay {
     background:
       linear-gradient(90deg, rgba(12, 22, 20, 0.93) 0%, rgba(12, 22, 20, 0.82) 58%, rgba(12, 22, 20, 0.48) 100%),
       linear-gradient(180deg, rgba(12, 22, 20, 0.08) 0%, rgba(12, 22, 20, 0.28) 100%);
