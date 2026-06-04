@@ -20,9 +20,13 @@ Open `index.html` if you want to adjust:
 - certification and award entries
 - contact links
 
-The generated hero image is stored at:
+The Buddha and Mount Everest hero background is stored at:
 
-`assets/hero-biostatistics.png`
+`assets/buddha-mount-everest.jpg`
+
+The Nepal map image is stored at:
+
+`assets/nepal-map.jpg`
 
 The profile photo is stored at:
 
