@@ -211,6 +211,29 @@ a {
   color: var(--white);
 }
 
+.hero-portrait {
+  position: absolute;
+  right: max(28px, calc((100vw - var(--max-width)) / 2));
+  bottom: 98px;
+  z-index: 1;
+  width: clamp(180px, 18vw, 260px);
+  margin: 0;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 8px;
+  background: rgba(251, 252, 251, 0.12);
+  box-shadow: 0 18px 55px rgba(10, 28, 24, 0.28);
+  backdrop-filter: blur(10px);
+}
+
+.hero-portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 6px;
+}
+
 .eyebrow {
   margin: 0 0 12px;
   color: var(--clay);
@@ -351,7 +374,7 @@ h1 {
   min-width: 0;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 2.1fr);
+  grid-template-columns: minmax(320px, 1fr) minmax(0, 2fr);
   gap: 56px;
 }
 
@@ -364,7 +387,7 @@ h1 {
 .section-heading h2,
 .contact-inner h2 {
   margin: 0;
-  font-size: 3rem;
+  font-size: 2.45rem;
 }
 
 .section-body {
@@ -432,6 +455,8 @@ h1 {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+
 
 .color-band {
   background: var(--soft);
@@ -635,6 +660,10 @@ h1 {
     padding-top: 146px;
   }
 
+  .hero-portrait {
+    display: none;
+  }
+
   .hero-overlay {
     background:
       linear-gradient(90deg, rgba(12, 22, 20, 0.93) 0%, rgba(12, 22, 20, 0.82) 58%, rgba(12, 22, 20, 0.48) 100%),
@@ -687,7 +716,7 @@ h1 {
 
   .section-heading h2,
   .contact-inner h2 {
-    font-size: 2.35rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -745,7 +774,7 @@ h1 {
 
   .section-heading h2,
   .contact-inner h2 {
-    font-size: 2rem;
+    font-size: 1.95rem;
   }
 
   .button {
