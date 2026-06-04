@@ -195,12 +195,13 @@ a {
   background-size: cover;
   background-position: center center;
   transform: scale(1.01);
+  filter: brightness(1.18) saturate(1.12);
 }
 
 .hero-overlay {
   background:
-    linear-gradient(90deg, rgba(6, 15, 22, 0.94) 0%, rgba(6, 15, 22, 0.86) 42%, rgba(6, 15, 22, 0.5) 72%, rgba(6, 15, 22, 0.28) 100%),
-    linear-gradient(180deg, rgba(6, 15, 22, 0.2) 0%, rgba(6, 15, 22, 0.42) 100%);
+    linear-gradient(90deg, rgba(6, 15, 22, 0.82) 0%, rgba(6, 15, 22, 0.68) 35%, rgba(6, 15, 22, 0.26) 68%, rgba(6, 15, 22, 0.12) 100%),
+    linear-gradient(180deg, rgba(6, 15, 22, 0.06) 0%, rgba(6, 15, 22, 0.2) 100%);
 }
 
 .hero-content {
