@@ -195,13 +195,12 @@ a {
   background-size: cover;
   background-position: center center;
   transform: scale(1.01);
-  filter: brightness(1.18) saturate(1.12);
+  filter: brightness(1.42) saturate(1.18) contrast(1.06);
 }
 
 .hero-overlay {
   background:
-    linear-gradient(90deg, rgba(6, 15, 22, 0.82) 0%, rgba(6, 15, 22, 0.68) 35%, rgba(6, 15, 22, 0.26) 68%, rgba(6, 15, 22, 0.12) 100%),
-    linear-gradient(180deg, rgba(6, 15, 22, 0.06) 0%, rgba(6, 15, 22, 0.2) 100%);
+    linear-gradient(90deg, rgba(6, 15, 22, 0.55) 0%, rgba(6, 15, 22, 0.32) 34%, rgba(6, 15, 22, 0.08) 64%, rgba(6, 15, 22, 0.02) 100%);
 }
 
 .hero-content {
@@ -269,7 +268,7 @@ h1 {
 
 .hero #hero-title {
   color: #fff1c7;
-  text-shadow: 0 4px 22px rgba(0, 0, 0, 0.72), 0 1px 1px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 5px 24px rgba(0, 0, 0, 0.88), 0 2px 3px rgba(0, 0, 0, 0.92);
 }
 
 .hero-role {
