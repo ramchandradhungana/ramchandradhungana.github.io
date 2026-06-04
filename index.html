@@ -328,14 +328,15 @@
     .skill-section h4 { color: var(--forest); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.85rem; }
     .skill-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .chip { padding: 0.38rem 1.1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
-    .chip-y { background: var(--gold-pale); color: var(--gold-light); border: 1px solid rgba(212,160,23,0.35); }
-    .chip-t { background: rgba(0,109,119,0.3); color: #80DEEA; border: 1px solid rgba(0,109,119,0.5); }
-    .chip-g { background: rgba(27,67,50,0.4); color: #A5D6A7; border: 1px solid rgba(45,106,79,0.5); }
-    .chip-b { background: rgba(25,118,210,0.25); color: #90CAF9; border: 1px solid rgba(25,118,210,0.4); }
+    .chip-y { background: #7B5800; color: #FFFFFF; border: 1px solid #5C4000; }
+    .chip-t { background: #00565E; color: #FFFFFF; border: 1px solid #003F45; }
+    .chip-g { background: #1B4332; color: #FFFFFF; border: 1px solid #0D2B20; }
+    .chip-b { background: #1565C0; color: #FFFFFF; border: 1px solid #0D47A1; }
 
     .exp-item {
-      border-left: 3px solid var(--teal); padding: 1.3rem 1.75rem;
-      background: var(--glass); border-radius: 0 10px 10px 0; margin-bottom: 1.2rem;
+      border-left: 4px solid var(--teal); padding: 1.3rem 1.75rem;
+      background: linear-gradient(135deg, #E8F4F8 0%, #F0F8FF 100%); border-radius: 0 10px 10px 0; margin-bottom: 1.2rem;
+      box-shadow: 0 2px 10px rgba(0,109,119,0.10);
     }
     .exp-item h3 { font-size: 1.02rem; color: var(--text); }
     .exp-item .org { color: var(--forest); font-size: 0.88rem; margin: 0.2rem 0 0.15rem; }
@@ -621,11 +622,20 @@
           <div class="edu-item">
             <div class="edu-badge">MS</div>
             <div class="edu-info">
-              <h3>Master of Science in Biostatistics</h3>
+              <h3>Master of Science in Statistics</h3>
               <p class="uni">Sam Houston State University</p>
               <p class="gpa">GPA: 3.67 &nbsp;·&nbsp; Outstanding Student of Statistics &nbsp;·&nbsp; Full Scholarship</p>
             </div>
           </div>
+          <div class="edu-item">
+            <div class="edu-badge">MS</div>
+            <div class="edu-info">
+              <h3>Master of Science in Computational Mathematics</h3>
+              <p class="uni">University of North Carolina at Greensboro</p>
+              <p class="gpa">GPA: 3.57</p>
+            </div>
+          </div>
+        </div>
 
         <div class="cv-panel" id="panel-exp">
           <div class="exp-item">
@@ -786,9 +796,43 @@
       a.addEventListener('click', () => { navLinks.classList.remove('open'); toggle.setAttribute('aria-expanded', false); })
     );
 
-    document.querySelectorAll('.cv-tab').forEach(tab => {
+        document.querySelectorAll('.cv-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.cv-tab').forEach(t => t.classList.remove('active'));
         document.querySelectorAll('.cv-panel').forEach(p => p.classList.remove('active'));
         tab.classList.add('active');
-        document.getElem                                 
+        document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+      });
+    });
+
+    const scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => scrollBtn.classList.toggle('visible', window.scrollY > 400));
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.r-card, .pub-item, .edu-item, .exp-item, .cred-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      observer.observe(el);
+    });
+
+    const sections = document.querySelectorAll('section[id], div[id="contact"]');
+    const navAs = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+      navAs.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
