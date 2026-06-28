@@ -520,6 +520,53 @@
       .contact-section { padding: 4rem 1.5rem; }
       .contact-form-wrap { padding: 1.5rem; }
     }
+
+    /* ══════════════════════════════════════════
+       SAMPLE SIZE CALCULATOR — DARK SPACE THEME
+    ══════════════════════════════════════════ */
+    #calculator { background:linear-gradient(135deg,#0F0C29 0%,#302B63 50%,#24243e 100%); position:relative; overflow:hidden; padding:5rem 5vw; }
+    #calculator::before { content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse at 15% 25%,rgba(0,212,255,.10) 0%,transparent 55%),radial-gradient(ellipse at 85% 75%,rgba(184,134,11,.12) 0%,transparent 55%); animation:calcGlow 10s ease-in-out infinite alternate; }
+    @keyframes calcGlow { 0%{opacity:.8} 100%{opacity:1.2;transform:scale(1.04)} }
+    .calc-section-hd { text-align:center; margin-bottom:2rem; }
+    .calc-section-hd h2 { color:#fff; text-shadow:0 0 28px rgba(0,212,255,.35); }
+    .calc-intro { max-width:680px; margin:0 auto .5rem; text-align:center; color:rgba(255,255,255,.65); font-size:.98rem; line-height:1.7; }
+    .calc-divider { width:60px; height:3px; background:linear-gradient(90deg,#00d4ff,#B8860B); border-radius:2px; margin:.5rem auto 1.8rem; box-shadow:0 0 14px rgba(0,212,255,.5); }
+    .calc-subtitle { text-align:center; color:rgba(255,255,255,.4); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:2rem; font-style:italic; }
+    .calc-tabs-wrap { display:flex; flex-wrap:wrap; gap:.45rem; justify-content:center; margin-bottom:2rem; }
+    .calc-tab { padding:.42rem 1rem; border-radius:30px; cursor:pointer; font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; background:rgba(255,255,255,.06); border:1.5px solid rgba(255,255,255,.18); color:rgba(255,255,255,.7); transition:all .25s; }
+    .calc-tab:hover { background:rgba(0,212,255,.1); border-color:rgba(0,212,255,.5); color:#00d4ff; }
+    .calc-tab.active { background:linear-gradient(135deg,rgba(0,212,255,.2),rgba(184,134,11,.2)); border-color:#00d4ff; color:#00d4ff; box-shadow:0 0 18px rgba(0,212,255,.3); }
+    .calc-panel { display:none; animation:cFadeIn .35s ease; }
+    .calc-panel.active { display:block; }
+    @keyframes cFadeIn { from{opacity:0;transform:translateY(12px) scale(.98)} to{opacity:1;transform:none} }
+    .calc-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:2.5rem; backdrop-filter:blur(20px); box-shadow:0 8px 48px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1); max-width:900px; margin:0 auto; }
+    .calc-formula-box { background:rgba(0,212,255,.06); border:1px solid rgba(0,212,255,.25); border-radius:12px; padding:1rem 1.4rem; margin-bottom:1.8rem; font-family:'Courier New',monospace; font-size:.9rem; color:#00d4ff; text-align:center; }
+    .calc-formula-label { font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(0,212,255,.55); margin-bottom:.3rem; font-family:Georgia,serif; }
+    .calc-inputs { display:grid; grid-template-columns:repeat(auto-fit,minmax(185px,1fr)); gap:1rem; margin-bottom:1.6rem; }
+    .calc-field label { display:block; font-size:.73rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-bottom:.32rem; }
+    .calc-field small { display:block; font-size:.66rem; color:rgba(255,255,255,.3); margin-top:.18rem; font-style:italic; }
+    .calc-field input,.calc-field select { width:100%; padding:.52rem .88rem; border-radius:7px; background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.18); color:#fff; font-size:.9rem; transition:border-color .2s,box-shadow .2s; }
+    .calc-field input:focus,.calc-field select:focus { outline:none; border-color:#00d4ff; box-shadow:0 0 10px rgba(0,212,255,.22); }
+    .calc-field select option { background:#1a1040; color:#fff; }
+    .calc-btn-row { display:flex; gap:.9rem; justify-content:center; margin-bottom:1.6rem; flex-wrap:wrap; }
+    .calc-btn { background:linear-gradient(135deg,#00d4ff,#0099cc); color:#0F0C29; padding:.72rem 2.2rem; border:none; border-radius:30px; font-size:.9rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; transition:transform .2s,box-shadow .2s; box-shadow:0 5px 22px rgba(0,212,255,.32); }
+    .calc-btn:hover { transform:translateY(-2px); box-shadow:0 9px 30px rgba(0,212,255,.48); }
+    .calc-reset { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); padding:.72rem 1.6rem; border:1.5px solid rgba(255,255,255,.2); border-radius:30px; font-size:.86rem; font-weight:600; cursor:pointer; transition:all .2s; }
+    .calc-reset:hover { background:rgba(255,255,255,.14); color:#fff; }
+    .calc-result { background:linear-gradient(135deg,rgba(0,212,255,.07),rgba(184,134,11,.07)); border:1px solid rgba(0,212,255,.28); border-radius:16px; padding:1.7rem; text-align:center; display:none; animation:rPop .45s cubic-bezier(.34,1.56,.64,1); }
+    .calc-result.show { display:block; }
+    @keyframes rPop { from{opacity:0;transform:scale(.86)} to{opacity:1;transform:scale(1)} }
+    .result-label { font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(0,212,255,.7); margin-bottom:.4rem; }
+    .result-num { font-size:clamp(2rem,5vw,3.4rem); font-weight:700; color:#fff; text-shadow:0 0 36px rgba(0,212,255,.5); line-height:1; margin-bottom:.22rem; }
+    .result-unit { font-size:.9rem; color:rgba(255,255,255,.5); margin-bottom:.85rem; }
+    .result-note { font-size:.78rem; color:rgba(255,255,255,.45); line-height:1.5; margin-bottom:1rem; }
+    .copy-btn { background:rgba(255,255,255,.1); border:1.5px solid rgba(255,255,255,.22); color:rgba(255,255,255,.65); padding:.38rem 1.2rem; border-radius:20px; font-size:.75rem; font-weight:600; cursor:pointer; transition:all .2s; }
+    .copy-btn:hover { background:rgba(255,255,255,.17); color:#fff; }
+    .calc-error { color:#ff7070; font-size:.84rem; text-align:center; padding:.85rem; background:rgba(255,107,107,.09); border:1px solid rgba(255,107,107,.28); border-radius:9px; display:none; margin-bottom:.85rem; }
+    .calc-error.show { display:block; }
+    .calc-disclaimer { text-align:center; color:rgba(255,255,255,.28); font-size:.7rem; margin-top:1.8rem; font-style:italic; }
+    @media(max-width:640px){.calc-inputs{grid-template-columns:1fr 1fr}.calc-tab{font-size:.63rem;padding:.3rem .7rem}}
+    @media(max-width:400px){.calc-inputs{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -537,6 +584,7 @@
       <a href="#cv">CV</a>
       <a href="#credentials">Credentials</a>
       <a href="#services">Services</a>
+      <a href="#calculator">Calculator</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -920,6 +968,168 @@
     </div>
   </section>
 
+  <!-- ── SAMPLE SIZE CALCULATOR ──────────────────────────────────── -->
+  <section class="section" id="calculator">
+    <div class="section-inner">
+      <div class="calc-section-hd">
+        <span class="eyebrow">Biostatistics Toolkit</span>
+        <h2>Sample Size Calculator</h2>
+      </div>
+      <div class="calc-divider"></div>
+      <p class="calc-intro">An interactive suite of 10 validated statistical calculators for clinical researchers, trialists, and biostatisticians. Enter parameters and get instant results.</p>
+      <p class="calc-subtitle">&#10022; Select a test type &middot; Enter parameters &middot; Get instant results &#10022;</p>
+      <div class="calc-tabs-wrap">
+        <button class="calc-tab active" data-calc="ttest2">Two-Sample t</button>
+        <button class="calc-tab" data-calc="ttest1">One-Sample t</button>
+        <button class="calc-tab" data-calc="paired">Paired t</button>
+        <button class="calc-tab" data-calc="prop2">Two Proportions</button>
+        <button class="calc-tab" data-calc="chisq">Chi-Square</button>
+        <button class="calc-tab" data-calc="logrank">Log-Rank/Survival</button>
+        <button class="calc-tab" data-calc="anova">One-Way ANOVA</button>
+        <button class="calc-tab" data-calc="corr">Correlation</button>
+        <button class="calc-tab" data-calc="noninf">Non-Inferiority</button>
+        <button class="calc-tab" data-calc="ciw">CI Width</button>
+      </div>
+      <div class="calc-panels">
+        <!-- 1 -->
+        <div class="calc-panel active" id="calc-ttest2"><div class="calc-card">
+          <div class="calc-formula-box"><div class="calc-formula-label">Per group</div>n = 2&sigma;&sup2;(z<sub>&alpha;/2</sub>+z<sub>&beta;</sub>)&sup2;/&delta;&sup2;</div>
+          <div class="calc-inputs">
+            <div class="calc-field"><label>Mean Difference (&delta;)</label><input type="number" id="tt2-delta" value="5" step="any"><small>Expected diff between group means</small></div>
+            <div class="calc-field"><label>Std Dev (&sigma;)</label><input type="number" id="tt2-sigma" value="10" step="any"><small>Common standard deviation</small></div>
+            <div class="calc-field"><label>Alpha (&alpha;)</label><select id="tt2-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select><small>Two-tailed</small></div>
+            <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="tt2-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
+          </div>
+          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('tt2')">Calculate</button><button class="calc-reset" onclick="cReset('tt2')">Reset</button></div>
+          <div class="calc-error" id="tt2-err"></div>
+          <div class="calc-result" id="tt2-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="tt2-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="tt2-note"></div><button class="copy-btn" onclick="cCopy('tt2-n')">&#128203; Copy</button></div>
+        </div></div>
+        <!-- 2 -->
+        <div class="calc-panel" id="calc-ttest1"><div class="calc-card">
+          <div class="calc-formula-box"><div class="calc-formula-label">One sample</div>n = &sigma;&sup2;(z<sub>&alpha;/2</sub>+z<sub>&beta;</sub>)&sup2;/&delta;&sup2;</div>
+          <div class="calc-inputs">
+            <div class="calc-field"><label>Effect Size (&delta;)</label><input type="number" id="tt1-delta" value="5" step="any"><small>Diff from null value</small></div>
+            <div class="calc-field"><label>Std Dev (&sigma;)</label><input type="number" id="tt1-sigma" value="10" step="any"></div>
+            <div class="calc-field"><label>Alpha (&alpha;)</label><select id="tt1-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
+            <div class="calc-field"><label>Tails</label><select id="tt1-tail"><option value="2" selected>Two-tailed</option><option value="1">One-tailed</option></select></div>
+            <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="tt1-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
+          </div>
+          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('tt1')">Calculate</button><button class="calc-reset" onclick="cReset('tt1')">Reset</button></div>
+          <div class="calc-error" id="tt1-err"></div>
+          <div class="calc-result" id="tt1-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="tt1-n">—</div><div class="result-unit">total participants</div><div class="result-note" id="tt1-note"></div><button class="copy-btn" onclick="cCopy('tt1-n')">&#128203; Copy</button></div>
+        </div></div>
+        <!-- 3 -->
+        <div class="calc-panel" id="calc-paired"><div class="calc-card">
+          <div class="calc-formula-box"><div class="calc-formula-label">Paired design</div>n = &sigma;<sub>d</sub>&sup2;(z<sub>&alpha;/2</sub>+z<sub>&beta;</sub>)&sup2;/&delta;&sup2;</div>
+          <div class="calc-inputs">
+            <div class="calc-field"><label>Mean Diff (&delta;)</label><input type="number" id="pr-delta" value="5" step="any"><small>Within-pair difference</small></div>
+            <div class="calc-field"><label>SD of Diffs (&sigma;<sub>d</sub>)</label><input type="number" id="pr-sigma" value="8" step="any"></div>
+            <div class="calc-field"><label>Alpha (&alpha;)</label><select id="pr-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
+            <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="pr-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
+          </div>
+          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('pr')">Calculate</button><button class="calc-reset" onclick="cReset('pr')">Reset</button></div>
+          <div class="calc-error" id="pr-err"></div>
+          <div class="calc-result" id="pr-res"><div class="result-label">Required Pairs</div><div class="result-num" id="pr-n">—</div><div class="result-unit">pairs of subjects</div><div class="result-note" id="pr-note"></div><button class="copy-btn" onclick="cCopy('pr-n')">&#128203; Copy</button></div>
+        </div></div>
+        <!-- 4 -->
+        <div class="calc-panel" id="calc-prop2"><div class="calc-card">
+          <div class="calc-formula-box"><div class="calc-formula-label">Two proportions, per group</div>[z<sub>&alpha;/2</sub>&radic;(2p&#772;q&#772;)+z<sub>&beta;</sub>&radic;(p&#8321;q&#8321;+p&#8322;q&#8322;)]&sup2;/(p&#8321;&minus;p&#8322;)&sup2;</div>
+          <div class="calc-inputs">
+            <div class="calc-field"><label>Proportion 1 (p&#8321;)</label><input type="number" id="p2-p1" value="0.40" step="0.01" min="0.01" max="0.99"><small>Control event rate</small></div>
+            <div class="calc-field"><label>Proportion 2 (p&#8322;)</label><input type="number" id="p2-p2" value="0.60" step="0.01" min="0.01" max="0.99"><small>Treatment event rate</small></div>
+            <div class="calc-field"><label>Alpha (&alpha;)</label><select id="p2-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
+            <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="p2-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
+          </div>
+          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('p2')">Calculate</button><button class="calc-reset" onclick="cReset('p2')">Reset</button></div>
+          <div class="calc-error" id="p2-err"></div>
+          <div class="calc-result" id="p2-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="p2-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="p2-note"></div><button class="copy-btn" onclick="cCopy('p2-n')">&#128203; Copy</button></div>
+        </div></div>
+        <!-- 5 -->
+        <div class="calc-panel" id="calc-chisq"><div class="calc-card">
+          <div class="calc-formula-box"><div class="calc-formula-label">Chi-Square (Cohen's w)</div>n = (z<sub>&alpha;/2</sub>+z<sub>&beta;</sub>)&sup2;/w&sup2;</div>
+          <div class="calc-inputs">
+            <div class="calc-field"><label>Effect Size (w)</label><select id="cs-w"><option value="0.1">0.10 &mdash; Small</option><option value="0.3" selected>0.30 &mdash; Medium</option><option value="0.5">0.50 &mdash; Large</option></select></div>
+            <div class="calc-field"><label>Custom w (optional)</label><input type="number" id="cs-wc" placeholder="e.g. 0.25" step="0.01" min="0.01"><small>Overrides dropdown</small></div>
+            <div class="calc-field"><label>Alpha (&alpha;)</label><select id="cs-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
+            <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="cs-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
+          </div>
+          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('cs')">Calculate</button><button class="calc-reset" onclick="cReset('cs')">Reset</button></div>
+          <div class="calc-error" id="cs-err"></div>
+          <div class="calc-result" id="cs-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="cs-n">—</div><div class="result-unit">total participants</div><div class="result-note" id="cs-note"></div><button class="copy-btn" onclick="cCopy('cs-n')">&#128203; Copy</button></div>
+        </div></div>
+        <!-- 6 -->
+        <div class="calc-panel" id="calc-logrank"><div class="calc-card">
+          <div class="calc-formula-box"><div class="calc-formula-label">Log-Rank (Freedman)</div>d=(z<sub>&alpha;/2</sub>+z<sub>&beta;</sub>)&sup2;(1+HR)&sup2;/(1&minus;HR)&sup2; &rarr; n=d/avg.event rate</div>
+          <div class="calc-inputs">
+            <div class="calc-field"><label>Hazard Ratio (HR)</label><input type="number" id="lr-hr" value="0.70" step="0.01" min="0.1"><small>e.g. 0.70 = 30% reduction</small></div>
+            <div class="calc-field"><label>Event Rate Control</label><input type="number" id="lr-p1" value="0.40" step="0.01" min="0.01" max="0.99"></div>
+            <div class="calc-field"><label>Event Rate Treatment</label><input type="number" id="lr-p2" value="0.28" step="0.01" min="0.01" max="0.99"></div>
+            <div class="calc-field"><label>Alpha (&alpha;)</label><select id="lr-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
+            <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="lr-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
+          </div>
+          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('lr')">Calculate</button><button class="calc-reset" onclick="cReset('lr')">Reset</button></div>
+          <div class="calc-error" id="lr-err"></div>
+          <div class="calc-result" id="lr-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="lr-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="lr-note"></div><button class="copy-btn" onclick="cCopy('lr-n')">&#128203; Copy</button></div>
+        </div></div>
+        <!-- 7 -->
+        <div class="calc-panel" id="calc-anova"><div class="calc-card">
+          <div class="calc-formula-box"><div class="calc-formula-label">One-Way ANOVA (Cohen's f, per group)</div>n &asymp; (z<sub>&alpha;/2</sub>+z<sub>&beta;</sub>)&sup2;/f&sup2;</div>
+          <div class="calc-inputs">
+            <div class="calc-field"><label>Groups (k)</label><input type="number" id="an-k" value="3" step="1" min="2" max="20"></div>
+            <div class="calc-field"><label>Effect Size f</label><select id="an-f"><option value="0.10">0.10 Small</option><option value="0.25" selected>0.25 Medium</option><option value="0.40">0.40 Large</option></select></div>
+            <div class="calc-field"><label>Custom f (optional)</label><input type="number" id="an-fc" placeholder="e.g. 0.30" step="0.01" min="0.01"><small>Overrides dropdown</small></div>
+            <div class="calc-field"><label>Alpha (&alpha;)</label><select id="an-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
+            <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="an-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
+          </div>
+          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('an')">Calculate</button><button class="calc-reset" onclick="cReset('an')">Reset</button></div>
+          <div class="calc-error" id="an-err"></div>
+          <div class="calc-result" id="an-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="an-n">—</div><div class="result-unit">participants / group</div><div class="result-note" id="an-note"></div><button class="copy-btn" onclick="cCopy('an-n')">&#128203; Copy</button></div>
+        </div></div>
+        <!-- 8 -->
+        <div class="calc-panel" id="calc-corr"><div class="calc-card">
+          <div class="calc-formula-box"><div class="calc-formula-label">Fisher's z-transformation</div>n=(z<sub>&alpha;/2</sub>+z<sub>&beta;</sub>)&sup2;/[0.5&middot;ln((1+r)/(1&minus;r))]&sup2;+3</div>
+          <div class="calc-inputs">
+            <div class="calc-field"><label>Correlation (r)</label><input type="number" id="co-r" value="0.30" step="0.01" min="-0.99" max="0.99"></div>
+            <div class="calc-field"><label>Null r&#8320;</label><input type="number" id="co-r0" value="0" step="0.01" min="-0.99" max="0.99"><small>Usually 0</small></div>
+            <div class="calc-field"><label>Alpha (&alpha;)</label><select id="co-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
+            <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="co-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
+          </div>
+          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('co')">Calculate</button><button class="calc-reset" onclick="cReset('co')">Reset</button></div>
+          <div class="calc-error" id="co-err"></div>
+          <div class="calc-result" id="co-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="co-n">—</div><div class="result-unit">total subjects</div><div class="result-note" id="co-note"></div><button class="copy-btn" onclick="cCopy('co-n')">&#128203; Copy</button></div>
+        </div></div>
+        <!-- 9 -->
+        <div class="calc-panel" id="calc-noninf"><div class="calc-card">
+          <div class="calc-formula-box"><div class="calc-formula-label">Non-Inferiority, per group</div>n=(z<sub>&alpha;</sub>+z<sub>&beta;</sub>)&sup2;(&sigma;&#8321;&sup2;+&sigma;&#8322;&sup2;)/(&delta;&minus;M)&sup2;</div>
+          <div class="calc-inputs">
+            <div class="calc-field"><label>Expected Diff (&delta;)</label><input type="number" id="ni-delta" value="0" step="any"><small>Treatment &minus; control</small></div>
+            <div class="calc-field"><label>NI Margin (M)</label><input type="number" id="ni-margin" value="5" step="any"></div>
+            <div class="calc-field"><label>SD Group 1 (&sigma;&#8321;)</label><input type="number" id="ni-s1" value="10" step="any"></div>
+            <div class="calc-field"><label>SD Group 2 (&sigma;&#8322;)</label><input type="number" id="ni-s2" value="10" step="any"></div>
+            <div class="calc-field"><label>Alpha (&alpha;)</label><select id="ni-alpha"><option value="0.025" selected>0.025 (one-sided)</option><option value="0.05">0.05</option><option value="0.01">0.01</option></select></div>
+            <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="ni-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
+          </div>
+          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('ni')">Calculate</button><button class="calc-reset" onclick="cReset('ni')">Reset</button></div>
+          <div class="calc-error" id="ni-err"></div>
+          <div class="calc-result" id="ni-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="ni-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="ni-note"></div><button class="copy-btn" onclick="cCopy('ni-n')">&#128203; Copy</button></div>
+        </div></div>
+        <!-- 10 -->
+        <div class="calc-panel" id="calc-ciw"><div class="calc-card">
+          <div class="calc-formula-box"><div class="calc-formula-label">CI Width</div>n=(z<sub>&alpha;/2</sub>&middot;&sigma;/(W/2))&sup2;</div>
+          <div class="calc-inputs">
+            <div class="calc-field"><label>Std Dev (&sigma;)</label><input type="number" id="ciw-sigma" value="15" step="any"></div>
+            <div class="calc-field"><label>Desired Width (W)</label><input type="number" id="ciw-width" value="10" step="any"><small>Total CI width</small></div>
+            <div class="calc-field"><label>Confidence Level</label><select id="ciw-conf"><option value="0.95" selected>95%</option><option value="0.99">99%</option><option value="0.90">90%</option></select></div>
+          </div>
+          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('ciw')">Calculate</button><button class="calc-reset" onclick="cReset('ciw')">Reset</button></div>
+          <div class="calc-error" id="ciw-err"></div>
+          <div class="calc-result" id="ciw-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="ciw-n">—</div><div class="result-unit">total participants</div><div class="result-note" id="ciw-note"></div><button class="copy-btn" onclick="cCopy('ciw-n')">&#128203; Copy</button></div>
+        </div></div>
+      </div><!-- /calc-panels -->
+      <p class="calc-disclaimer">&#9888; For research planning only. Consult a qualified biostatistician for study-specific calculations.</p>
+    </div>
+  </section>
+
   <!-- ── CONTACT ───────────────────────────────────────────────────── -->
   <div class="contact-section" id="contact">
     <div class="contact-inner">
@@ -1079,6 +1289,50 @@
         }
       });
     }
+
+    /* ── SAMPLE SIZE CALCULATOR JS ─────────────────────── */
+    (function(){
+      function nI(p){
+        var a=[-3.969683028665376e+01,2.209460984245205e+02,-2.759285104469687e+02,1.383577518672690e+02,-3.066479806614716e+01,2.506628277459239e+00];
+        var b=[-5.447609879822406e+01,1.615858368580409e+02,-1.556989798598866e+02,6.680131188771972e+01,-1.328068155288572e+01];
+        var c=[-7.784894002430293e-03,-3.223964580411365e-01,-2.400758277161838e+00,-2.549732539343734e+00,4.374664141464968e+00,2.938163982698783e+00];
+        var d=[7.784695709041462e-03,3.223907451786057e-01,2.445134137142996e+00,3.754408661907416e+00];
+        if(p<=0||p>=1)return NaN;
+        var q,r;
+        if(p<0.02425){q=Math.sqrt(-2*Math.log(p));return(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+        if(p<=0.97575){q=p-0.5;r=q*q;return(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);}
+        q=Math.sqrt(-2*Math.log(1-p));return-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+      }
+      function za2(a){return nI(1-a/2);} function za1(a){return nI(1-a);} function zb(pw){return nI(pw);}
+      function gv(id){return parseFloat(document.getElementById(id).value);}
+      function cl(x){return Math.ceil(x);}
+      function sR(p,n,nt){document.getElementById(p+'-err').classList.remove('show');document.getElementById(p+'-n').textContent=n;document.getElementById(p+'-note').textContent=nt;document.getElementById(p+'-res').classList.add('show');}
+      function sE(p,m){document.getElementById(p+'-res').classList.remove('show');var e=document.getElementById(p+'-err');e.textContent=m;e.classList.add('show');}
+      window.cReset=function(p){var r=document.getElementById(p+'-res'),e=document.getElementById(p+'-err');if(r)r.classList.remove('show');if(e)e.classList.remove('show');};
+      window.cCopy=function(id){navigator.clipboard&&navigator.clipboard.writeText(document.getElementById(id).textContent).then(function(){var b=document.querySelector('[onclick="cCopy(''+id+'')"]');if(b){b.textContent='Copied!';setTimeout(function(){b.textContent='\u{1F4CB} Copy';},2e3);}});};
+      var calcs={
+        tt2:function(){var d=gv('tt2-delta'),s=gv('tt2-sigma'),a=gv('tt2-alpha'),pw=gv('tt2-power');if(!d||d<=0)return sE('tt2','Mean difference must be > 0');if(!s||s<=0)return sE('tt2','SD must be > 0');var z=za2(a)+zb(pw),n=cl(2*s*s*z*z/(d*d));sR('tt2',n,'Total: '+(n*2)+' | Effect d='+((d/s).toFixed(3)));},
+        tt1:function(){var d=gv('tt1-delta'),s=gv('tt1-sigma'),a=gv('tt1-alpha'),pw=gv('tt1-power'),t=parseInt(document.getElementById('tt1-tail').value);if(!d||d<=0)return sE('tt1','Effect size must be > 0');if(!s||s<=0)return sE('tt1','SD must be > 0');var za=t===2?za2(a):za1(a),n=cl(s*s*(za+zb(pw))*(za+zb(pw))/(d*d));sR('tt1',n,(t===2?'Two':'One')+'-tailed | d='+((d/s).toFixed(3)));},
+        pr:function(){var d=gv('pr-delta'),s=gv('pr-sigma'),a=gv('pr-alpha'),pw=gv('pr-power');if(!d||d<=0)return sE('pr','Mean difference must be > 0');if(!s||s<=0)return sE('pr','SD must be > 0');var z=za2(a)+zb(pw),n=cl(s*s*z*z/(d*d));sR('pr',n,n+' pairs | d='+((d/s).toFixed(3)));},
+        p2:function(){var p1=gv('p2-p1'),p2=gv('p2-p2'),a=gv('p2-alpha'),pw=gv('p2-power');if(p1<=0||p1>=1||p2<=0||p2>=1)return sE('p2','Proportions must be 0–1');if(p1===p2)return sE('p2','Proportions must differ');var pb=(p1+p2)/2,num=za2(a)*Math.sqrt(2*pb*(1-pb))+zb(pw)*Math.sqrt(p1*(1-p1)+p2*(1-p2)),n=cl(num*num/((p1-p2)*(p1-p2)));sR('p2',n,'Total:'+(n*2)+' ARD='+Math.abs(p2-p1).toFixed(2)+' NNT≈'+cl(1/Math.abs(p2-p1)));},
+        cs:function(){var wc=gv('cs-wc'),w=wc>0?wc:gv('cs-w'),a=gv('cs-alpha'),pw=gv('cs-power');if(!w||w<=0)return sE('cs','Effect size w must be > 0');var z=za2(a)+zb(pw),n=cl(z*z/(w*w));sR('cs',n,'w='+w.toFixed(3)+' ('+(w<.2?'small':w<.4?'medium':'large')+')');},
+        lr:function(){var hr=gv('lr-hr'),p1=gv('lr-p1'),p2=gv('lr-p2'),a=gv('lr-alpha'),pw=gv('lr-power');if(!hr||hr<=0)return sE('lr','HR must be > 0');if(hr===1)return sE('lr','HR=1 implies no effect');if(p1<=0||p1>=1||p2<=0||p2>=1)return sE('lr','Event rates must be 0–1');var d=cl((za2(a)+zb(pw))*(za2(a)+zb(pw))*(1+hr)*(1+hr)/((1-hr)*(1-hr))),n=cl(d/((p1+p2)/2)/2);sR('lr',n,'Events: '+d+' Total: '+(n*2)+' HR='+hr);},
+        an:function(){var k=parseInt(document.getElementById('an-k').value)||3,fc=gv('an-fc'),f=fc>0?fc:gv('an-f'),a=gv('an-alpha'),pw=gv('an-power');if(!f||f<=0)return sE('an','f must be > 0');if(k<2)return sE('an','Need ≥2 groups');var z=za2(a)+zb(pw),n=cl(z*z/(f*f));sR('an',n,k+' groups × '+n+' = '+(k*n)+' total | f='+f.toFixed(3));},
+        co:function(){var r=gv('co-r'),r0=gv('co-r0')||0,a=gv('co-alpha'),pw=gv('co-power');if(r<=-1||r>=1)return sE('co','r must be −1 to 1');if(r===r0)return sE('co','r equals null r₀');var zr=.5*Math.log((1+r)/(1-r)),zr0=.5*Math.log((1+r0)/(1-r0)),n=cl((za2(a)+zb(pw))*(za2(a)+zb(pw))/((zr-zr0)*(zr-zr0)))+3;sR('co',n,'r='+r+' | Fisher z='+zr.toFixed(4));},
+        ni:function(){var d=gv('ni-delta')||0,m=gv('ni-margin'),s1=gv('ni-s1'),s2=gv('ni-s2'),a=gv('ni-alpha'),pw=gv('ni-power');if(!m||m<=0)return sE('ni','Margin must be > 0');if(!s1||s1<=0||!s2||s2<=0)return sE('ni','SDs must be > 0');if(d>=m)return sE('ni','δ must be < margin');var n=cl((za1(a)+zb(pw))*(za1(a)+zb(pw))*(s1*s1+s2*s2)/((m-d)*(m-d)));sR('ni',n,'Total:'+(n*2)+' M='+m+' δ='+d);},
+        ciw:function(){var s=gv('ciw-sigma'),W=gv('ciw-width'),conf=gv('ciw-conf');if(!s||s<=0)return sE('ciw','SD must be > 0');if(!W||W<=0)return sE('ciw','Width must be > 0');var a=1-conf,z=za2(a),n=cl((z*s/(W/2))*(z*s/(W/2)));sR('ciw',n,(conf*100).toFixed(0)+'% CI ±'+(z*s/Math.sqrt(n)).toFixed(3));},
+      };
+      window.cCalc=function(k){if(calcs[k])calcs[k]();};
+      document.querySelectorAll('.calc-tab').forEach(function(t){
+        t.addEventListener('click',function(){
+          document.querySelectorAll('.calc-tab').forEach(function(x){x.classList.remove('active');});
+          document.querySelectorAll('.calc-panel').forEach(function(x){x.classList.remove('active');});
+          t.classList.add('active');
+          document.getElementById('calc-'+t.dataset.calc).classList.add('active');
+        });
+      });
+    })();
+
   </script>
 </body>
 </html>
