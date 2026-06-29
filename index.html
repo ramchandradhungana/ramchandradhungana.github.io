@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="https://ramchandradhungana.github.io/assets/ram-photo.jpg">
 
   <link rel="canonical" href="https://ramchandradhungana.github.io/">
-  <title>Ram Chandra Dhungana | Biostatistics PhD Candidate</title>
+  <title>Ram Chandra Dhungana | Biostatistics, Clinical Trials & Data Science</title>
 
   <style>
     /* ── TOKENS ──────────────────────────────────────────────────────── */
@@ -567,7 +567,102 @@
     .calc-disclaimer { text-align:center; color:rgba(255,255,255,.28); font-size:.7rem; margin-top:1.8rem; font-style:italic; }
     @media(max-width:640px){.calc-inputs{grid-template-columns:1fr 1fr}.calc-tab{font-size:.63rem;padding:.3rem .7rem}}
     @media(max-width:400px){.calc-inputs{grid-template-columns:1fr}}
-  </style>
+
+
+/* ════════════════════════════════════════════════════════════════
+   GPT PREMIUM POLISH — Hero · Snapshot · Calculator · Contact · Tags
+════════════════════════════════════════════════════════════════ */
+:root{ --rcd-gold:#c99a2e; --rcd-gold-soft:#f3d88b; }
+/* ── HERO ── */
+.hero{ min-height:104vh; isolation:isolate; }
+.hero-bg{ transform:scale(1.035); filter:saturate(1.08) contrast(1.05); }
+.hero-overlay{
+  background:
+    linear-gradient(105deg,rgba(4,18,12,.96) 0%,rgba(9,31,22,.86) 43%,rgba(15,61,49,.52) 100%),
+    radial-gradient(circle at 78% 35%,rgba(243,216,139,.18),transparent 34%);
+}
+.hero-inner{ max-width:1360px; gap:4rem; }
+.hero-text{ max-width:650px; padding:2rem 2.2rem; border:1px solid rgba(255,255,255,.14); border-radius:28px; background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025)); box-shadow:0 36px 90px rgba(0,0,0,.26); backdrop-filter:blur(6px); }
+.hero-eyebrow{ color:var(--rcd-gold-soft); font-weight:700; }
+.hero-name{ background:linear-gradient(135deg,#fff4bf 0%,#d0a747 42%,#fff1b6 78%,#8fd7c6 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; text-shadow:none; letter-spacing:-.025em; }
+.hero-title{ color:#fff6d7; }
+.hero-desc{ color:rgba(255,255,255,.88); }
+.btn{ border-radius:999px; }
+.btn-gold{ color:#122116; background:linear-gradient(135deg,#f1c85d,#fff0ad); border-color:transparent; box-shadow:0 12px 30px rgba(201,154,46,.30); }
+.btn-outline{ border-color:rgba(255,255,255,.35); background:rgba(255,255,255,.06); backdrop-filter:blur(6px); }
+.hero-map-img{ max-width:500px; filter:drop-shadow(0 0 20px rgba(143,215,198,.65)) drop-shadow(0 0 70px rgba(243,216,139,.18)); }
+/* ── SNAPSHOT BAR ── */
+.snapshot{ background:linear-gradient(90deg,#0b281e 0%,#0c6f69 50%,#0b281e 100%); box-shadow:inset 0 1px 0 rgba(255,255,255,.12); }
+.snap-item{ padding:2.35rem 1.5rem; }
+.snap-num{ color:#f3d88b; }
+/* ── CALCULATOR ── */
+#calculator{ background: radial-gradient(circle at 15% 20%,rgba(0,212,255,.18),transparent 34%), radial-gradient(circle at 84% 62%,rgba(243,216,139,.16),transparent 36%), linear-gradient(135deg,#080b1f 0%,#171942 50%,#0a2727 100%)!important; }
+.calc-card{ border:1px solid rgba(255,255,255,.16)!important; background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.035))!important; }
+.calc-disclaimer{ max-width:820px; margin-left:auto; margin-right:auto; color:rgba(255,255,255,.52)!important; }
+/* ── CONTACT ── */
+.contact-section{ background: radial-gradient(circle at 15% 5%,rgba(243,216,139,.14),transparent 32%), linear-gradient(135deg,#092116 0%,#0b6c67 50%,#071a14 100%)!important; }
+/* ── SKILL TAGS ── */
+.about-tag{ font-weight:600; letter-spacing:.04em; transition:transform .18s,box-shadow .18s,filter .18s; cursor:default; }
+.about-tag:hover{ transform:translateY(-2px) scale(1.04); filter:brightness(1.15); }
+.tag-g:hover{ box-shadow:0 6px 18px rgba(45,106,79,.40); }
+.tag-t:hover{ box-shadow:0 6px 18px rgba(0,109,119,.40); }
+.tag-y:hover{ box-shadow:0 6px 18px rgba(184,134,11,.40); }
+.tag-r:hover{ box-shadow:0 6px 18px rgba(198,40,40,.40); }
+@media(max-width:900px){ .hero-text{padding:1.5rem;} }
+
+/* ── PORTFOLIO BUG FIX: styles for existing Methods Portfolio section ── */
+#portfolio {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(243,216,139,.12), transparent 32%),
+    linear-gradient(135deg, #092116 0%, #0b3b2e 52%, #071a14 100%);
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.portfolio-card {
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.16);
+  border-top: 3px solid var(--gold);
+  border-radius: 14px;
+  padding: 2rem 1.6rem;
+  box-shadow: 0 12px 34px rgba(0,0,0,.18);
+  backdrop-filter: blur(8px);
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(243,216,139,.55);
+  box-shadow: 0 20px 46px rgba(0,0,0,.26);
+}
+.portfolio-card h3 {
+  color: #f3d88b;
+  font-size: 1.05rem;
+  margin-bottom: .75rem;
+}
+.portfolio-card p {
+  color: rgba(255,255,255,.84);
+  font-size: .9rem;
+  line-height: 1.75;
+}
+.portfolio-chip {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .28rem .85rem;
+  border-radius: 999px;
+  background: rgba(243,216,139,.14);
+  border: 1px solid rgba(243,216,139,.28);
+  color: #f3d88b;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+@media (max-width: 900px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+}
+
+</style>
 </head>
 <body>
 
@@ -580,6 +675,7 @@
     <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
       <a href="#research">Research</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="#publications">Publications</a>
       <a href="#cv">CV</a>
       <a href="#credentials">Credentials</a>
@@ -709,6 +805,35 @@
       </div>
     </div>
   </section>
+
+
+  <!-- ── SELECTED STATISTICAL WORK ─────────────────────────────────── -->
+  <section class="section" id="portfolio">
+    <div class="section-inner">
+      <div class="section-hd">
+        <span class="eyebrow">Methods Portfolio</span>
+        <h2 style="color:#fff;">Selected Statistical Work</h2>
+      </div>
+      <div class="portfolio-grid">
+        <article class="portfolio-card">
+          <h3>Healthcare Claims Analytics</h3>
+          <p>Claims-based cohort construction, follow-up/readmission outcomes, rural stratification, and reproducible statistical reporting for applied health services research.</p>
+          <span class="portfolio-chip">SAS · R · SQL</span>
+        </article>
+        <article class="portfolio-card">
+          <h3>Clinical Trial Methods</h3>
+          <p>Power and sample size reasoning for continuous, binary, survival, correlation, non-inferiority, and ANOVA settings with transparent assumptions.</p>
+          <span class="portfolio-chip">Study Design</span>
+        </article>
+        <article class="portfolio-card">
+          <h3>Reproducible Reporting</h3>
+          <p>Clear statistical communication through tables, figures, Quarto/LaTeX documents, and code-driven workflows designed for research collaboration.</p>
+          <span class="portfolio-chip">R Markdown · Quarto</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ── PUBLICATIONS ─────────────────────────────────────────────── -->
   <section class="section" id="publications">
@@ -976,19 +1101,19 @@
         <h2>Sample Size Calculator</h2>
       </div>
       <div class="calc-divider"></div>
-      <p class="calc-intro">An interactive suite of 10 validated statistical calculators for clinical researchers, trialists, and biostatisticians. Enter parameters and get instant results.</p>
+      <p class="calc-intro">An interactive suite of 10 statistical calculators for preliminary planning, education, and clinical research design support. Enter parameters and review results instantly.</p>
       <p class="calc-subtitle">&#10022; Select a test type &middot; Enter parameters &middot; Get instant results &#10022;</p>
       <div class="calc-tabs-wrap">
-        <button class="calc-tab active" data-calc="ttest2">Two-Sample t</button>
-        <button class="calc-tab" data-calc="ttest1">One-Sample t</button>
-        <button class="calc-tab" data-calc="paired">Paired t</button>
-        <button class="calc-tab" data-calc="prop2">Two Proportions</button>
-        <button class="calc-tab" data-calc="chisq">Chi-Square</button>
-        <button class="calc-tab" data-calc="logrank">Log-Rank/Survival</button>
-        <button class="calc-tab" data-calc="anova">One-Way ANOVA</button>
-        <button class="calc-tab" data-calc="corr">Correlation</button>
-        <button class="calc-tab" data-calc="noninf">Non-Inferiority</button>
-        <button class="calc-tab" data-calc="ciw">CI Width</button>
+        <button type="button" class="calc-tab active" data-calc="ttest2">Two-Sample t</button>
+        <button type="button" class="calc-tab" data-calc="ttest1">One-Sample t</button>
+        <button type="button" class="calc-tab" data-calc="paired">Paired t</button>
+        <button type="button" class="calc-tab" data-calc="prop2">Two Proportions</button>
+        <button type="button" class="calc-tab" data-calc="chisq">Chi-Square</button>
+        <button type="button" class="calc-tab" data-calc="logrank">Log-Rank/Survival</button>
+        <button type="button" class="calc-tab" data-calc="anova">One-Way ANOVA</button>
+        <button type="button" class="calc-tab" data-calc="corr">Correlation</button>
+        <button type="button" class="calc-tab" data-calc="noninf">Non-Inferiority</button>
+        <button type="button" class="calc-tab" data-calc="ciw">CI Width</button>
       </div>
       <div class="calc-panels">
         <!-- 1 -->
@@ -1000,9 +1125,9 @@
             <div class="calc-field"><label>Alpha (&alpha;)</label><select id="tt2-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select><small>Two-tailed</small></div>
             <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="tt2-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
           </div>
-          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('tt2')">Calculate</button><button class="calc-reset" onclick="cReset('tt2')">Reset</button></div>
+          <div class="calc-btn-row"><button type="button" class="calc-btn" onclick="cCalc('tt2')">Calculate</button><button type="button" class="calc-reset" onclick="cReset('tt2')">Reset</button></div>
           <div class="calc-error" id="tt2-err"></div>
-          <div class="calc-result" id="tt2-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="tt2-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="tt2-note"></div><button class="copy-btn" onclick="cCopy('tt2-n')">&#128203; Copy</button></div>
+          <div class="calc-result" id="tt2-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="tt2-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="tt2-note"></div><button type="button" class="copy-btn" onclick="cCopy('tt2-n')">&#128203; Copy</button></div>
         </div></div>
         <!-- 2 -->
         <div class="calc-panel" id="calc-ttest1"><div class="calc-card">
@@ -1014,9 +1139,9 @@
             <div class="calc-field"><label>Tails</label><select id="tt1-tail"><option value="2" selected>Two-tailed</option><option value="1">One-tailed</option></select></div>
             <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="tt1-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
           </div>
-          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('tt1')">Calculate</button><button class="calc-reset" onclick="cReset('tt1')">Reset</button></div>
+          <div class="calc-btn-row"><button type="button" class="calc-btn" onclick="cCalc('tt1')">Calculate</button><button type="button" class="calc-reset" onclick="cReset('tt1')">Reset</button></div>
           <div class="calc-error" id="tt1-err"></div>
-          <div class="calc-result" id="tt1-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="tt1-n">—</div><div class="result-unit">total participants</div><div class="result-note" id="tt1-note"></div><button class="copy-btn" onclick="cCopy('tt1-n')">&#128203; Copy</button></div>
+          <div class="calc-result" id="tt1-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="tt1-n">—</div><div class="result-unit">total participants</div><div class="result-note" id="tt1-note"></div><button type="button" class="copy-btn" onclick="cCopy('tt1-n')">&#128203; Copy</button></div>
         </div></div>
         <!-- 3 -->
         <div class="calc-panel" id="calc-paired"><div class="calc-card">
@@ -1027,9 +1152,9 @@
             <div class="calc-field"><label>Alpha (&alpha;)</label><select id="pr-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
             <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="pr-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
           </div>
-          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('pr')">Calculate</button><button class="calc-reset" onclick="cReset('pr')">Reset</button></div>
+          <div class="calc-btn-row"><button type="button" class="calc-btn" onclick="cCalc('pr')">Calculate</button><button type="button" class="calc-reset" onclick="cReset('pr')">Reset</button></div>
           <div class="calc-error" id="pr-err"></div>
-          <div class="calc-result" id="pr-res"><div class="result-label">Required Pairs</div><div class="result-num" id="pr-n">—</div><div class="result-unit">pairs of subjects</div><div class="result-note" id="pr-note"></div><button class="copy-btn" onclick="cCopy('pr-n')">&#128203; Copy</button></div>
+          <div class="calc-result" id="pr-res"><div class="result-label">Required Pairs</div><div class="result-num" id="pr-n">—</div><div class="result-unit">pairs of subjects</div><div class="result-note" id="pr-note"></div><button type="button" class="copy-btn" onclick="cCopy('pr-n')">&#128203; Copy</button></div>
         </div></div>
         <!-- 4 -->
         <div class="calc-panel" id="calc-prop2"><div class="calc-card">
@@ -1040,9 +1165,9 @@
             <div class="calc-field"><label>Alpha (&alpha;)</label><select id="p2-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
             <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="p2-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
           </div>
-          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('p2')">Calculate</button><button class="calc-reset" onclick="cReset('p2')">Reset</button></div>
+          <div class="calc-btn-row"><button type="button" class="calc-btn" onclick="cCalc('p2')">Calculate</button><button type="button" class="calc-reset" onclick="cReset('p2')">Reset</button></div>
           <div class="calc-error" id="p2-err"></div>
-          <div class="calc-result" id="p2-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="p2-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="p2-note"></div><button class="copy-btn" onclick="cCopy('p2-n')">&#128203; Copy</button></div>
+          <div class="calc-result" id="p2-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="p2-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="p2-note"></div><button type="button" class="copy-btn" onclick="cCopy('p2-n')">&#128203; Copy</button></div>
         </div></div>
         <!-- 5 -->
         <div class="calc-panel" id="calc-chisq"><div class="calc-card">
@@ -1053,9 +1178,9 @@
             <div class="calc-field"><label>Alpha (&alpha;)</label><select id="cs-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
             <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="cs-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
           </div>
-          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('cs')">Calculate</button><button class="calc-reset" onclick="cReset('cs')">Reset</button></div>
+          <div class="calc-btn-row"><button type="button" class="calc-btn" onclick="cCalc('cs')">Calculate</button><button type="button" class="calc-reset" onclick="cReset('cs')">Reset</button></div>
           <div class="calc-error" id="cs-err"></div>
-          <div class="calc-result" id="cs-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="cs-n">—</div><div class="result-unit">total participants</div><div class="result-note" id="cs-note"></div><button class="copy-btn" onclick="cCopy('cs-n')">&#128203; Copy</button></div>
+          <div class="calc-result" id="cs-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="cs-n">—</div><div class="result-unit">total participants</div><div class="result-note" id="cs-note"></div><button type="button" class="copy-btn" onclick="cCopy('cs-n')">&#128203; Copy</button></div>
         </div></div>
         <!-- 6 -->
         <div class="calc-panel" id="calc-logrank"><div class="calc-card">
@@ -1067,9 +1192,9 @@
             <div class="calc-field"><label>Alpha (&alpha;)</label><select id="lr-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
             <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="lr-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
           </div>
-          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('lr')">Calculate</button><button class="calc-reset" onclick="cReset('lr')">Reset</button></div>
+          <div class="calc-btn-row"><button type="button" class="calc-btn" onclick="cCalc('lr')">Calculate</button><button type="button" class="calc-reset" onclick="cReset('lr')">Reset</button></div>
           <div class="calc-error" id="lr-err"></div>
-          <div class="calc-result" id="lr-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="lr-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="lr-note"></div><button class="copy-btn" onclick="cCopy('lr-n')">&#128203; Copy</button></div>
+          <div class="calc-result" id="lr-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="lr-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="lr-note"></div><button type="button" class="copy-btn" onclick="cCopy('lr-n')">&#128203; Copy</button></div>
         </div></div>
         <!-- 7 -->
         <div class="calc-panel" id="calc-anova"><div class="calc-card">
@@ -1081,9 +1206,9 @@
             <div class="calc-field"><label>Alpha (&alpha;)</label><select id="an-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
             <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="an-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
           </div>
-          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('an')">Calculate</button><button class="calc-reset" onclick="cReset('an')">Reset</button></div>
+          <div class="calc-btn-row"><button type="button" class="calc-btn" onclick="cCalc('an')">Calculate</button><button type="button" class="calc-reset" onclick="cReset('an')">Reset</button></div>
           <div class="calc-error" id="an-err"></div>
-          <div class="calc-result" id="an-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="an-n">—</div><div class="result-unit">participants / group</div><div class="result-note" id="an-note"></div><button class="copy-btn" onclick="cCopy('an-n')">&#128203; Copy</button></div>
+          <div class="calc-result" id="an-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="an-n">—</div><div class="result-unit">participants / group</div><div class="result-note" id="an-note"></div><button type="button" class="copy-btn" onclick="cCopy('an-n')">&#128203; Copy</button></div>
         </div></div>
         <!-- 8 -->
         <div class="calc-panel" id="calc-corr"><div class="calc-card">
@@ -1094,9 +1219,9 @@
             <div class="calc-field"><label>Alpha (&alpha;)</label><select id="co-alpha"><option value="0.05" selected>0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></div>
             <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="co-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
           </div>
-          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('co')">Calculate</button><button class="calc-reset" onclick="cReset('co')">Reset</button></div>
+          <div class="calc-btn-row"><button type="button" class="calc-btn" onclick="cCalc('co')">Calculate</button><button type="button" class="calc-reset" onclick="cReset('co')">Reset</button></div>
           <div class="calc-error" id="co-err"></div>
-          <div class="calc-result" id="co-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="co-n">—</div><div class="result-unit">total subjects</div><div class="result-note" id="co-note"></div><button class="copy-btn" onclick="cCopy('co-n')">&#128203; Copy</button></div>
+          <div class="calc-result" id="co-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="co-n">—</div><div class="result-unit">total subjects</div><div class="result-note" id="co-note"></div><button type="button" class="copy-btn" onclick="cCopy('co-n')">&#128203; Copy</button></div>
         </div></div>
         <!-- 9 -->
         <div class="calc-panel" id="calc-noninf"><div class="calc-card">
@@ -1109,9 +1234,9 @@
             <div class="calc-field"><label>Alpha (&alpha;)</label><select id="ni-alpha"><option value="0.025" selected>0.025 (one-sided)</option><option value="0.05">0.05</option><option value="0.01">0.01</option></select></div>
             <div class="calc-field"><label>Power (1&minus;&beta;)</label><select id="ni-power"><option value="0.80" selected>0.80</option><option value="0.90">0.90</option><option value="0.95">0.95</option></select></div>
           </div>
-          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('ni')">Calculate</button><button class="calc-reset" onclick="cReset('ni')">Reset</button></div>
+          <div class="calc-btn-row"><button type="button" class="calc-btn" onclick="cCalc('ni')">Calculate</button><button type="button" class="calc-reset" onclick="cReset('ni')">Reset</button></div>
           <div class="calc-error" id="ni-err"></div>
-          <div class="calc-result" id="ni-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="ni-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="ni-note"></div><button class="copy-btn" onclick="cCopy('ni-n')">&#128203; Copy</button></div>
+          <div class="calc-result" id="ni-res"><div class="result-label">Sample Size Per Group</div><div class="result-num" id="ni-n">—</div><div class="result-unit">participants / arm</div><div class="result-note" id="ni-note"></div><button type="button" class="copy-btn" onclick="cCopy('ni-n')">&#128203; Copy</button></div>
         </div></div>
         <!-- 10 -->
         <div class="calc-panel" id="calc-ciw"><div class="calc-card">
@@ -1121,12 +1246,12 @@
             <div class="calc-field"><label>Desired Width (W)</label><input type="number" id="ciw-width" value="10" step="any"><small>Total CI width</small></div>
             <div class="calc-field"><label>Confidence Level</label><select id="ciw-conf"><option value="0.95" selected>95%</option><option value="0.99">99%</option><option value="0.90">90%</option></select></div>
           </div>
-          <div class="calc-btn-row"><button class="calc-btn" onclick="cCalc('ciw')">Calculate</button><button class="calc-reset" onclick="cReset('ciw')">Reset</button></div>
+          <div class="calc-btn-row"><button type="button" class="calc-btn" onclick="cCalc('ciw')">Calculate</button><button type="button" class="calc-reset" onclick="cReset('ciw')">Reset</button></div>
           <div class="calc-error" id="ciw-err"></div>
-          <div class="calc-result" id="ciw-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="ciw-n">—</div><div class="result-unit">total participants</div><div class="result-note" id="ciw-note"></div><button class="copy-btn" onclick="cCopy('ciw-n')">&#128203; Copy</button></div>
+          <div class="calc-result" id="ciw-res"><div class="result-label">Required Sample Size</div><div class="result-num" id="ciw-n">—</div><div class="result-unit">total participants</div><div class="result-note" id="ciw-note"></div><button type="button" class="copy-btn" onclick="cCopy('ciw-n')">&#128203; Copy</button></div>
         </div></div>
       </div><!-- /calc-panels -->
-      <p class="calc-disclaimer">&#9888; For research planning only. Consult a qualified biostatistician for study-specific calculations.</p>
+      <p class="calc-disclaimer">&#9888; Planning and education only. For protocols, grants, publications, or regulatory work, verify assumptions and calculations using R, PASS, nQuery, EAST, or a qualified biostatistician.</p>
     </div>
   </section>
 
@@ -1264,6 +1389,10 @@
     if (contactForm) {
       contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
+        if (!contactForm.checkValidity()) {
+          contactForm.reportValidity();
+          return;
+        }
         fsSuccess.style.display = 'none';
         fsError.style.display = 'none';
         submitBtn.disabled = true;
