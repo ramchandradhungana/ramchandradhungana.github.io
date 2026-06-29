@@ -662,6 +662,277 @@
   .portfolio-grid { grid-template-columns: 1fr; }
 }
 
+
+/* ════════════════════════════════════════════════════════════════
+   STATX PRO CALCULATOR — statistical tables, p-values, AUC, CIs
+   Added without changing existing site colors/content
+════════════════════════════════════════════════════════════════ */
+#stattools {
+  position: relative;
+  overflow: hidden;
+  padding: 5.5rem 5vw;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(255, 58, 166, .22), transparent 34%),
+    radial-gradient(circle at 88% 18%, rgba(119, 79, 255, .24), transparent 36%),
+    radial-gradient(circle at 55% 92%, rgba(0, 255, 209, .16), transparent 42%),
+    linear-gradient(135deg, #120414 0%, #2a063f 40%, #071a34 72%, #041f24 100%);
+  color: #fff;
+}
+#stattools::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, transparent 0%, rgba(255,255,255,.08) 18%, transparent 32%, transparent 72%, rgba(0,255,209,.08) 84%, transparent 100%);
+  animation: statxSweep 12s linear infinite;
+}
+@keyframes statxSweep { from { transform: translateX(-18%); } to { transform: translateX(18%); } }
+.statx-inner { position: relative; z-index: 1; max-width: 1220px; margin: 0 auto; }
+.statx-hd { text-align: center; margin-bottom: 1.7rem; }
+.statx-kicker {
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .35rem .9rem; border-radius: 999px;
+  background: rgba(255, 58, 166, .13); border: 1px solid rgba(255, 210, 122, .34);
+  color: #ffd27a; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 700;
+}
+.statx-hd h2 {
+  margin-top: .9rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  color: #fff;
+  text-shadow: 0 0 34px rgba(255,58,166,.28);
+}
+.statx-hd h2 span {
+  background: linear-gradient(135deg, #ffffff 0%, #ffd27a 28%, #ff3aa6 55%, #7c5cff 76%, #00ffd1 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.statx-intro { max-width: 820px; margin: .9rem auto 0; color: rgba(255,255,255,.72); line-height: 1.8; font-size: .98rem; }
+.statx-feature-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: .9rem;
+  margin: 2rem 0 1.6rem;
+}
+.statx-feature {
+  background: linear-gradient(145deg, rgba(255,255,255,.095), rgba(255,255,255,.035));
+  border: 1px solid rgba(255,255,255,.14); border-radius: 16px; padding: 1rem;
+  box-shadow: 0 12px 36px rgba(0,0,0,.18); backdrop-filter: blur(12px);
+}
+.statx-feature strong { display:block; color:#ffd27a; font-size:.86rem; margin-bottom:.2rem; }
+.statx-feature span { color:rgba(255,255,255,.58); font-size:.76rem; line-height:1.45; }
+.statx-shell {
+  display: grid; grid-template-columns: 245px minmax(0,1fr); gap: 1.15rem; align-items: start;
+}
+.statx-tabs {
+  position: sticky; top: 82px;
+  background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.13);
+  border-radius: 20px; padding: .75rem; backdrop-filter: blur(16px);
+  box-shadow: 0 18px 54px rgba(0,0,0,.22);
+}
+.statx-tab {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: .7rem;
+  padding: .78rem .9rem; margin-bottom: .35rem; border: 1px solid transparent; border-radius: 13px;
+  background: transparent; color: rgba(255,255,255,.72); font-family: Georgia, serif;
+  font-size: .82rem; text-align: left; cursor: pointer; transition: all .22s;
+}
+.statx-tab:last-child { margin-bottom: 0; }
+.statx-tab:hover { color:#fff; background:rgba(255,58,166,.11); border-color:rgba(0,255,209,.28); transform: translateX(3px); }
+.statx-tab.active {
+  color:#100414; background: linear-gradient(135deg,#ff3aa6,#ffd27a 52%,#00ffd1);
+  box-shadow:0 10px 30px rgba(255,58,166,.28);
+}
+.statx-tab small { opacity:.75; font-size:.66rem; letter-spacing:.05em; text-transform:uppercase; }
+.statx-workspace {
+  background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.032));
+  border: 1px solid rgba(255,255,255,.15); border-radius: 24px; padding: 1.3rem;
+  backdrop-filter: blur(18px); box-shadow: 0 24px 80px rgba(0,0,0,.30);
+}
+.statx-panel { display:none; }
+.statx-panel.active { display:block; animation: statxIn .28s ease; }
+@keyframes statxIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform:none; } }
+.statx-card-title { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom: 1rem; }
+.statx-card-title h3 { color:#fff; font-size:1.32rem; line-height:1.25; }
+.statx-card-title p { color:rgba(255,255,255,.56); font-size:.82rem; line-height:1.55; margin-top:.25rem; }
+.statx-pill {
+  flex-shrink:0; padding:.32rem .72rem; border-radius:999px; font-size:.64rem; letter-spacing:.12em; text-transform:uppercase;
+  color:#00ffd1; border:1px solid rgba(0,255,209,.35); background:rgba(0,255,209,.08); font-weight:700;
+}
+.statx-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:.85rem; }
+.statx-grid.two { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.statx-grid.four { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.statx-field { display:flex; flex-direction:column; gap:.35rem; }
+.statx-field label { color:rgba(255,255,255,.68); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; }
+.statx-field small { color:rgba(255,255,255,.36); font-size:.68rem; line-height:1.35; }
+.statx-field input,
+.statx-field select,
+.statx-field textarea {
+  width:100%; border-radius: 10px; border: 1.4px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.075); color:#fff; padding:.68rem .85rem;
+  font-family: Georgia, serif; font-size:.92rem; outline:none; transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.statx-field textarea { min-height:118px; resize:vertical; line-height:1.55; }
+.statx-field input:focus,
+.statx-field select:focus,
+.statx-field textarea:focus { border-color:#00ffd1; box-shadow:0 0 0 3px rgba(0,255,209,.14); background:rgba(255,255,255,.10); }
+.statx-field select option { background:#11143b; color:#fff; }
+.statx-actions { display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center; margin:1.2rem 0; }
+.statx-btn {
+  border:0; border-radius:999px; padding:.78rem 1.55rem; cursor:pointer; font-family:Georgia,serif;
+  font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:.78rem;
+  color:#100414; background: linear-gradient(135deg,#ff3aa6,#ffd27a 52%,#00ffd1);
+  box-shadow: 0 10px 30px rgba(255,58,166,.28); transition: transform .18s, box-shadow .18s, filter .18s;
+}
+.statx-btn:hover { transform: translateY(-2px); box-shadow:0 14px 38px rgba(0,255,209,.26); filter:brightness(1.05); }
+.statx-btn.secondary { color:rgba(255,255,255,.72); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); box-shadow:none; }
+.statx-result {
+  display:none; margin-top: 1rem; border-radius: 18px; padding: 1.1rem;
+  background: linear-gradient(145deg, rgba(255,58,166,.10), rgba(0,255,209,.075));
+  border: 1px solid rgba(0,255,209,.24);
+}
+.statx-result.show { display:block; animation: statxPop .28s cubic-bezier(.34,1.56,.64,1); }
+@keyframes statxPop { from { opacity:0; transform:scale(.97); } to { opacity:1; transform:scale(1); } }
+.statx-result h4 { color:#ffd27a; font-size:.92rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:.7rem; }
+.statx-output-grid { display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap:.65rem; }
+.statx-output { background:rgba(255,255,255,.075); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:.8rem; }
+.statx-output span { display:block; color:rgba(255,255,255,.48); font-size:.66rem; letter-spacing:.10em; text-transform:uppercase; margin-bottom:.2rem; }
+.statx-output strong { display:block; color:#fff; font-size:1.1rem; word-break:break-word; }
+.statx-note { color:rgba(255,255,255,.56); font-size:.78rem; line-height:1.55; margin-top:.8rem; }
+.statx-error { display:none; margin-top:.9rem; color:#ffb3b3; background:rgba(255,80,80,.10); border:1px solid rgba(255,80,80,.26); padding:.8rem 1rem; border-radius:12px; text-align:center; }
+.statx-error.show { display:block; }
+
+.statx-visual-card {
+  margin: 1.05rem 0 1.15rem;
+  padding: .9rem;
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.028));
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 14px 40px rgba(0,0,0,.18);
+}
+.statx-visual-top {
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  margin-bottom:.55rem;
+}
+.statx-visual-top strong {
+  color:#ffd27a; font-size:.76rem; letter-spacing:.14em; text-transform:uppercase;
+}
+.statx-visual-top span {
+  color:rgba(255,255,255,.48); font-size:.7rem; font-style:italic;
+}
+.statx-canvas {
+  width:100%; height:260px; display:block; border-radius:14px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,58,166,.10), transparent 38%),
+    linear-gradient(180deg, rgba(255,255,255,.055), rgba(0,0,0,.055));
+}
+@media (max-width: 720px) { .statx-canvas { height:220px; } }
+
+.statx-history {
+  margin-top: 1.15rem; padding: 1rem; border-radius: 18px;
+  background:rgba(255,255,255,.045); border:1px solid rgba(255,255,255,.12);
+}
+.statx-history h3 { color:#ffd27a; font-size:.86rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; }
+.statx-history-list { display:flex; flex-direction:column; gap:.5rem; }
+.statx-history-item { color:rgba(255,255,255,.70); font-size:.78rem; line-height:1.5; padding:.55rem .65rem; border-radius:10px; background:rgba(255,255,255,.055); }
+.statx-disclaimer { max-width:900px; margin:1.3rem auto 0; color:rgba(255,255,255,.48); font-size:.72rem; line-height:1.65; text-align:center; font-style:italic; }
+.statx-inline-note { color:rgba(255,255,255,.45); font-size:.72rem; line-height:1.55; margin-top:.6rem; }
+.statx-hide { display:none !important; }
+@media (max-width: 1050px) {
+  .statx-shell { grid-template-columns: 1fr; }
+  .statx-tabs { position:relative; top:auto; display:grid; grid-template-columns:repeat(3,1fr); }
+  .statx-tab { margin-bottom:0; }
+  .statx-feature-strip { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 720px) {
+  #stattools { padding:4rem 1.2rem; }
+  .statx-tabs { grid-template-columns:repeat(2,1fr); }
+  .statx-grid, .statx-grid.two, .statx-grid.four { grid-template-columns:1fr; }
+  .statx-output-grid { grid-template-columns:1fr; }
+  .statx-feature-strip { grid-template-columns:1fr; }
+  .statx-card-title { flex-direction:column; }
+}
+
+
+
+/* ════════════════════════════════════════════════════════════════
+   FINAL READABILITY POLISH — distinct Stats Tools text/buttons
+   Keeps existing design and improves contrast only; title kept normal.
+════════════════════════════════════════════════════════════════ */
+.statx-kicker,
+.statx-feature strong,
+.statx-card-title h3,
+.statx-visual-top strong {
+  text-shadow: 0 0 14px rgba(255,210,122,.24);
+}
+.statx-tab {
+  color: #f7fbff !important;
+  background: rgba(255,255,255,.075) !important;
+  border-color: rgba(255,255,255,.16) !important;
+  font-weight: 800 !important;
+  letter-spacing: .012em;
+  text-shadow: 0 0 10px rgba(255,255,255,.18);
+}
+.statx-tab small {
+  color: #ffd27a !important;
+  opacity: 1 !important;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(255,210,122,.24);
+}
+.statx-tab:hover {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, rgba(255,58,166,.26), rgba(0,255,209,.14)) !important;
+  border-color: rgba(0,255,209,.55) !important;
+  box-shadow: 0 10px 26px rgba(0,0,0,.18), inset 0 0 0 1px rgba(255,255,255,.08);
+}
+.statx-tab.active {
+  color: #090313 !important;
+  background: linear-gradient(135deg,#ff3aa6 0%,#ffd27a 52%,#00ffd1 100%) !important;
+  border-color: rgba(255,255,255,.50) !important;
+  text-shadow: none !important;
+  box-shadow: 0 12px 34px rgba(255,58,166,.34), 0 0 26px rgba(0,255,209,.18);
+}
+.statx-tab.active small { color: #151006 !important; text-shadow: none !important; }
+.statx-btn {
+  color: #061014 !important;
+  font-size: .83rem !important;
+  font-weight: 900 !important;
+  letter-spacing: .105em !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,.28);
+  border: 1px solid rgba(255,255,255,.34) !important;
+  box-shadow: 0 12px 34px rgba(255,58,166,.34), 0 0 22px rgba(0,255,209,.16) !important;
+}
+.statx-btn:hover {
+  box-shadow: 0 16px 42px rgba(0,255,209,.30), 0 0 28px rgba(255,210,122,.18) !important;
+}
+.statx-btn.secondary {
+  color: #ffffff !important;
+  background: rgba(255,255,255,.14) !important;
+  border: 1.5px solid rgba(255,255,255,.36) !important;
+  text-shadow: 0 0 10px rgba(255,255,255,.18) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,.18) !important;
+}
+.statx-btn.secondary:hover {
+  background: rgba(255,255,255,.22) !important;
+  border-color: rgba(0,255,209,.58) !important;
+  color: #ffffff !important;
+}
+.statx-field label {
+  color: #f2f6ff !important;
+  opacity: 1 !important;
+  text-shadow: 0 0 10px rgba(255,255,255,.12);
+}
+.statx-field small,
+.statx-card-title p,
+.statx-intro,
+.statx-visual-top span {
+  color: rgba(255,255,255,.74) !important;
+}
+.statx-pill {
+  color: #081015 !important;
+  background: linear-gradient(135deg,#00ffd1,#ffd27a) !important;
+  border-color: rgba(255,255,255,.40) !important;
+  font-weight: 900 !important;
+}
+
 </style>
 </head>
 <body>
@@ -681,6 +952,7 @@
       <a href="#credentials">Credentials</a>
       <a href="#services">Services</a>
       <a href="#calculator">Calculator</a>
+      <a href="#stattools">Stats Tools</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -1255,6 +1527,218 @@
     </div>
   </section>
 
+
+  <!-- ── STATISTICAL TABLES / P-VALUE CALCULATOR ───────────────────── -->
+  <section class="section statx-section" id="stattools">
+    <div class="statx-inner">
+      <div class="statx-hd">
+        <span class="statx-kicker">⚡ No R code · No printed tables</span>
+        <h2><span>Statistical Tables</span><br>&amp; P-Value Calculator</h2>
+        <p class="statx-intro">
+          A fast browser-based statistics toolkit for critical values, distribution probabilities,
+          p-values, confidence intervals, descriptive statistics, exact discrete probabilities, and AUC/ROC calculations.
+          Select a tab, enter numbers, and calculate instantly — no R code required.
+        </p>
+      </div>
+
+      <div class="statx-feature-strip">
+        <div class="statx-feature"><strong>Z · t · χ² · F</strong><span>Critical values and p-values without opening distribution tables.</span></div>
+        <div class="statx-feature"><strong>Area Under Curve</strong><span>Normal area between bounds plus ROC AUC from pasted FPR/TPR points.</span></div>
+        <div class="statx-feature"><strong>Data Summary</strong><span>Paste numbers to get n, mean, SD, variance, median, quartiles, SE, skewness.</span></div>
+        <div class="statx-feature"><strong>CI &amp; Test Helper</strong><span>Confidence intervals, z/t/χ²/F tests, correlation tests, binomial, and Poisson.</span></div>
+      </div>
+
+      <div class="statx-shell">
+        <div class="statx-tabs" role="tablist" aria-label="Statistical calculator tabs">
+          <button type="button" class="statx-tab active" data-statx="normal">Normal / Z <small>AUC</small></button>
+          <button type="button" class="statx-tab" data-statx="t">t Distribution <small>df</small></button>
+          <button type="button" class="statx-tab" data-statx="chisq">Chi-Square <small>χ²</small></button>
+          <button type="button" class="statx-tab" data-statx="f">F Distribution <small>ANOVA</small></button>
+          <button type="button" class="statx-tab" data-statx="discrete">Discrete <small>Bin/Poisson</small></button>
+          <button type="button" class="statx-tab" data-statx="desc">Descriptive <small>Paste data</small></button>
+          <button type="button" class="statx-tab" data-statx="ci">Confidence Intervals <small>Mean/Prop</small></button>
+          <button type="button" class="statx-tab" data-statx="tests">Test Helper <small>p-values</small></button>
+          <button type="button" class="statx-tab" data-statx="roc">ROC / AUC <small>Pairs</small></button>
+        </div>
+
+        <div class="statx-workspace">
+          <!-- NORMAL -->
+          <div class="statx-panel active" id="statx-normal">
+            <div class="statx-card-title">
+              <div><h3>Normal / Z Calculator</h3><p>Compute left-tail, right-tail, two-tail, area between bounds, and critical values. Equivalent to common uses of pnorm() and qnorm().</p></div>
+              <span class="statx-pill">Fast AUC</span>
+            </div>
+            <div class="statx-grid four">
+              <div class="statx-field"><label>Mean μ</label><input id="stx-n-mu" type="number" value="0" step="any"></div>
+              <div class="statx-field"><label>SD σ</label><input id="stx-n-sd" type="number" value="1" step="any"></div>
+              <div class="statx-field"><label>Lower bound</label><input id="stx-n-lo" type="text" value="-1.96"><small>Use -inf for no lower bound</small></div>
+              <div class="statx-field"><label>Upper bound</label><input id="stx-n-hi" type="text" value="1.96"><small>Use inf for no upper bound</small></div>
+              <div class="statx-field"><label>Probability for critical value</label><input id="stx-n-prob" type="number" value="0.975" step="any" min="0" max="1"><small>Left-tail probability</small></div>
+              <div class="statx-field"><label>Observed x or z</label><input id="stx-n-x" type="number" value="1.96" step="any"><small>Uses μ and σ</small></div>
+            </div>
+
+            <div class="statx-visual-card">
+              <div class="statx-visual-top"><strong>Live density curve</strong><span>Shaded region updates after calculation</span></div>
+              <canvas class="statx-canvas" id="stx-normal-chart" width="900" height="300" aria-label="Normal density curve"></canvas>
+            </div>
+            <div class="statx-actions">
+              <button type="button" class="statx-btn" onclick="STX.normalArea()">Calculate Area</button>
+              <button type="button" class="statx-btn secondary" onclick="STX.normalCritical()">Find Critical Value</button>
+              <button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-normal-res')">Copy Result</button>
+            </div>
+            <div class="statx-error" id="stx-normal-err"></div>
+            <div class="statx-result" id="stx-normal-res"></div>
+          </div>
+
+          <!-- T -->
+          <div class="statx-panel" id="statx-t">
+            <div class="statx-card-title"><div><h3>t Distribution Calculator</h3><p>Compute t p-values and critical t values. Equivalent to pt() and qt().</p></div><span class="statx-pill">Student t</span></div>
+            <div class="statx-grid four">
+              <div class="statx-field"><label>t statistic</label><input id="stx-t-val" type="number" value="2.086" step="any"></div>
+              <div class="statx-field"><label>Degrees of freedom</label><input id="stx-t-df" type="number" value="20" step="any" min="1"></div>
+              <div class="statx-field"><label>Alpha</label><input id="stx-t-alpha" type="number" value="0.05" step="any" min="0" max="1"></div>
+              <div class="statx-field"><label>Tail</label><select id="stx-t-tail"><option value="two" selected>Two-tailed</option><option value="right">Right-tail</option><option value="left">Left-tail</option></select></div>
+            </div>
+
+            <div class="statx-visual-card">
+              <div class="statx-visual-top"><strong>Live t density curve</strong><span>Tail shading follows your selected tail</span></div>
+              <canvas class="statx-canvas" id="stx-t-chart" width="900" height="300" aria-label="t distribution density curve"></canvas>
+            </div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.tCalc()">Calculate</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-t-res')">Copy Result</button></div>
+            <div class="statx-error" id="stx-t-err"></div><div class="statx-result" id="stx-t-res"></div>
+          </div>
+
+          <!-- CHI-SQUARE -->
+          <div class="statx-panel" id="statx-chisq">
+            <div class="statx-card-title"><div><h3>Chi-Square Calculator</h3><p>Compute right-tail chi-square p-values and critical values. Equivalent to pchisq() and qchisq().</p></div><span class="statx-pill">χ² table</span></div>
+            <div class="statx-grid four">
+              <div class="statx-field"><label>χ² statistic</label><input id="stx-c-val" type="number" value="18.307" step="any"></div>
+              <div class="statx-field"><label>Degrees of freedom</label><input id="stx-c-df" type="number" value="10" step="any" min="1"></div>
+              <div class="statx-field"><label>Alpha</label><input id="stx-c-alpha" type="number" value="0.05" step="any" min="0" max="1"></div>
+            </div>
+
+            <div class="statx-visual-card">
+              <div class="statx-visual-top"><strong>Live chi-square density</strong><span>Right tail is the usual chi-square p-value</span></div>
+              <canvas class="statx-canvas" id="stx-c-chart" width="900" height="300" aria-label="Chi-square density curve"></canvas>
+            </div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.chisqCalc()">Calculate</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-c-res')">Copy Result</button></div>
+            <div class="statx-error" id="stx-c-err"></div><div class="statx-result" id="stx-c-res"></div>
+          </div>
+
+          <!-- F -->
+          <div class="statx-panel" id="statx-f">
+            <div class="statx-card-title"><div><h3>F Distribution Calculator</h3><p>Compute F p-values and critical F values. Equivalent to pf() and qf().</p></div><span class="statx-pill">F table</span></div>
+            <div class="statx-grid four">
+              <div class="statx-field"><label>F statistic</label><input id="stx-f-val" type="number" value="2.84" step="any"></div>
+              <div class="statx-field"><label>df1 numerator</label><input id="stx-f-df1" type="number" value="3" step="any" min="1"></div>
+              <div class="statx-field"><label>df2 denominator</label><input id="stx-f-df2" type="number" value="40" step="any" min="1"></div>
+              <div class="statx-field"><label>Alpha</label><input id="stx-f-alpha" type="number" value="0.05" step="any" min="0" max="1"></div>
+            </div>
+
+            <div class="statx-visual-card">
+              <div class="statx-visual-top"><strong>Live F density</strong><span>Right tail is the usual F-test p-value</span></div>
+              <canvas class="statx-canvas" id="stx-f-chart" width="900" height="300" aria-label="F distribution density curve"></canvas>
+            </div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.fCalc()">Calculate</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-f-res')">Copy Result</button></div>
+            <div class="statx-error" id="stx-f-err"></div><div class="statx-result" id="stx-f-res"></div>
+          </div>
+
+          <!-- DISCRETE -->
+          <div class="statx-panel" id="statx-discrete">
+            <div class="statx-card-title"><div><h3>Binomial &amp; Poisson Calculator</h3><p>Exact probability, cumulative probability, and right-tail probability for common discrete distributions.</p></div><span class="statx-pill">Exact probs</span></div>
+            <div class="statx-grid four">
+              <div class="statx-field"><label>Distribution</label><select id="stx-d-dist" onchange="STX.toggleDiscrete()"><option value="binom" selected>Binomial</option><option value="pois">Poisson</option></select></div>
+              <div class="statx-field stx-binomial-only"><label>n trials</label><input id="stx-d-n" type="number" value="20" min="0" step="1"></div>
+              <div class="statx-field stx-binomial-only"><label>p success</label><input id="stx-d-p" type="number" value="0.30" min="0" max="1" step="any"></div>
+              <div class="statx-field stx-poisson-only statx-hide"><label>λ rate</label><input id="stx-d-lam" type="number" value="4" min="0" step="any"></div>
+              <div class="statx-field"><label>x value</label><input id="stx-d-x" type="number" value="5" min="0" step="1"></div>
+            </div>
+
+            <div class="statx-visual-card">
+              <div class="statx-visual-top"><strong>Live probability bars</strong><span>PMF bars highlight the selected x value</span></div>
+              <canvas class="statx-canvas" id="stx-d-chart" width="900" height="300" aria-label="Discrete probability bars"></canvas>
+            </div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.discreteCalc()">Calculate</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-d-res')">Copy Result</button></div>
+            <div class="statx-error" id="stx-d-err"></div><div class="statx-result" id="stx-d-res"></div>
+          </div>
+
+          <!-- DESCRIPTIVE -->
+          <div class="statx-panel" id="statx-desc">
+            <div class="statx-card-title"><div><h3>Descriptive Statistics Calculator</h3><p>Paste numbers separated by spaces, commas, or new lines. The calculator ignores non-numeric text.</p></div><span class="statx-pill">Data paste</span></div>
+            <div class="statx-field"><label>Data values</label><textarea id="stx-desc-data">12, 15, 18, 20, 22, 22, 25, 30, 34, 40</textarea><small>Example: 12, 15, 18, 20 or one number per line</small></div>
+
+            <div class="statx-visual-card">
+              <div class="statx-visual-top"><strong>Live data histogram</strong><span>Paste data and see the distribution shape</span></div>
+              <canvas class="statx-canvas" id="stx-desc-chart" width="900" height="300" aria-label="Data histogram"></canvas>
+            </div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.descCalc()">Summarize Data</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-desc-res')">Copy Result</button></div>
+            <div class="statx-error" id="stx-desc-err"></div><div class="statx-result" id="stx-desc-res"></div>
+          </div>
+
+          <!-- CI -->
+          <div class="statx-panel" id="statx-ci">
+            <div class="statx-card-title"><div><h3>Confidence Interval Calculator</h3><p>Quick CIs for one mean and one proportion using common textbook formulas.</p></div><span class="statx-pill">CI helper</span></div>
+            <div class="statx-grid four">
+              <div class="statx-field"><label>CI type</label><select id="stx-ci-type"><option value="mean" selected>Mean</option><option value="prop">Proportion</option></select></div>
+              <div class="statx-field"><label>Confidence</label><input id="stx-ci-conf" type="number" value="0.95" min="0" max="1" step="any"></div>
+              <div class="statx-field"><label>Sample size n</label><input id="stx-ci-n" type="number" value="25" min="1" step="1"></div>
+              <div class="statx-field"><label>Method</label><select id="stx-ci-method"><option value="t" selected>t for mean / Wilson for prop</option><option value="z">z for mean / Wald for prop</option></select></div>
+              <div class="statx-field"><label>Mean x̄</label><input id="stx-ci-mean" type="number" value="100" step="any"></div>
+              <div class="statx-field"><label>Sample SD s</label><input id="stx-ci-sd" type="number" value="15" step="any"></div>
+              <div class="statx-field"><label>Successes x</label><input id="stx-ci-x" type="number" value="15" min="0" step="1"><small>Used only when CI type = proportion</small></div>
+            </div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.ciCalc()">Calculate CI</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-ci-res')">Copy Result</button></div>
+            <div class="statx-error" id="stx-ci-err"></div><div class="statx-result" id="stx-ci-res"></div>
+          </div>
+
+          <!-- TESTS -->
+          <div class="statx-panel" id="statx-tests">
+            <div class="statx-card-title"><div><h3>P-Value Test Helper</h3><p>Convert common test statistics to p-values without typing code. Includes z, t, χ², F, and Pearson correlation tests.</p></div><span class="statx-pill">p-value</span></div>
+            <div class="statx-grid four">
+              <div class="statx-field"><label>Test type</label><select id="stx-test-type"><option value="z" selected>z test</option><option value="t">t test</option><option value="chisq">χ² test</option><option value="f">F test</option><option value="corr">Correlation r test</option></select></div>
+              <div class="statx-field"><label>Statistic</label><input id="stx-test-stat" type="number" value="1.96" step="any"><small>z, t, χ², or F</small></div>
+              <div class="statx-field"><label>df / n</label><input id="stx-test-df" type="number" value="20" step="any"><small>df for t/χ², n for correlation</small></div>
+              <div class="statx-field"><label>df2 for F</label><input id="stx-test-df2" type="number" value="40" step="any"></div>
+              <div class="statx-field"><label>Correlation r</label><input id="stx-test-r" type="number" value="0.30" step="any" min="-0.999" max="0.999"></div>
+              <div class="statx-field"><label>Tail</label><select id="stx-test-tail"><option value="two" selected>Two-tailed</option><option value="right">Right-tail</option><option value="left">Left-tail</option></select></div>
+            </div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.testCalc()">Calculate p-value</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-test-res')">Copy Result</button></div>
+            <div class="statx-error" id="stx-test-err"></div><div class="statx-result" id="stx-test-res"></div>
+          </div>
+
+          <!-- ROC -->
+          <div class="statx-panel" id="statx-roc">
+            <div class="statx-card-title"><div><h3>ROC / AUC Calculator</h3><p>Paste ROC coordinates as FPR,TPR pairs. The calculator sorts by FPR and computes trapezoidal AUC.</p></div><span class="statx-pill">ROC AUC</span></div>
+            <div class="statx-field"><label>ROC points: FPR, TPR</label><textarea id="stx-roc-data">0,0
+0.10,0.35
+0.25,0.62
+0.50,0.82
+0.75,0.94
+1,1</textarea><small>One pair per line. Example: 0.25, 0.62</small></div>
+
+            <div class="statx-visual-card">
+              <div class="statx-visual-top"><strong>Live ROC curve</strong><span>Curve updates from pasted FPR/TPR pairs</span></div>
+              <canvas class="statx-canvas" id="stx-roc-chart" width="900" height="300" aria-label="ROC curve chart"></canvas>
+            </div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.rocCalc()">Calculate AUC</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-roc-res')">Copy Result</button></div>
+            <div class="statx-error" id="stx-roc-err"></div><div class="statx-result" id="stx-roc-res"></div>
+          </div>
+
+          <div class="statx-history">
+            <h3>Recent outputs</h3>
+            <div class="statx-history-list" id="statx-history-list"><div class="statx-history-item">Run any calculator to save the latest results here.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="statx-disclaimer">
+        This browser calculator is designed for quick table lookups, p-values, areas, and educational/research planning checks.
+        For manuscripts, protocols, regulatory submissions, or complex modeling, verify results using R, SAS, Python, PASS, nQuery, EAST, or a qualified biostatistician.
+      </p>
+    </div>
+  </section>
+
+
   <!-- ── CONTACT ───────────────────────────────────────────────────── -->
   <div class="contact-section" id="contact">
     <div class="contact-inner">
@@ -1438,7 +1922,13 @@
       function sR(p,n,nt){document.getElementById(p+'-err').classList.remove('show');document.getElementById(p+'-n').textContent=n;document.getElementById(p+'-note').textContent=nt;document.getElementById(p+'-res').classList.add('show');}
       function sE(p,m){document.getElementById(p+'-res').classList.remove('show');var e=document.getElementById(p+'-err');e.textContent=m;e.classList.add('show');}
       window.cReset=function(p){var r=document.getElementById(p+'-res'),e=document.getElementById(p+'-err');if(r)r.classList.remove('show');if(e)e.classList.remove('show');};
-    window.cCopy=function(id){if(!navigator.clipboard)return;var el=document.getElementById(id);if(!el)return;navigator.clipboard.writeText(el.textContent).then(function(){var btn=el.parentNode.querySelector('.copy-btn');if(btn){btn.textContent='Copied!';setTimeout(function(){btn.textContent='Copy';},2000);}});};
+    window.cCopy=function(id){
+        var el=document.getElementById(id); if(!el)return;
+        var txt=el.textContent||'';
+        function done(){var btn=el.parentNode.querySelector('.copy-btn');if(btn){btn.textContent='Copied!';setTimeout(function(){btn.textContent='📋 Copy';},2000);}}
+        function fallback(){try{var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}catch(e){}}
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(fallback);}else{fallback();}
+      };
       /* ── noncentral-F helpers for ANOVA ─── */
       function _lgam(x){var p=[0.99999999999980993,676.5203681218851,-1259.1392167224028,771.32342877765313,-176.61502916214059,12.507343278686905,-0.13857109526572012,9.9843695780195716e-6,1.5056327351493116e-7];if(x<0.5)return Math.log(Math.PI/Math.sin(Math.PI*x))-_lgam(1-x);x-=1;var a=p[0],t=x+7.5;for(var i=1;i<9;i++)a+=p[i]/(x+i);return 0.5*Math.log(2*Math.PI)+(x+0.5)*Math.log(t)-t+Math.log(a);}
       function _ibeta(x,a,b){if(x<=0)return 0;if(x>=1)return 1;if(x>(a+1)/(a+b+2))return 1-_ibeta(1-x,b,a);var fr=Math.exp(a*Math.log(x)+b*Math.log(1-x)-_lgam(a)-_lgam(b)+_lgam(a+b))/a,qab=a+b,qap=a+1,qam=a-1,c=1,d=1-qab*x/qap;if(Math.abs(d)<1e-300)d=1e-300;d=1/d;var h=d;for(var m=1;m<=200;m++){var m2=2*m,aa=m*(b-m)*x/((qam+m2)*(a+m2));d=1+aa*d;if(Math.abs(d)<1e-300)d=1e-300;c=1+aa/c;if(Math.abs(c)<1e-300)c=1e-300;d=1/d;h*=d*c;aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2));d=1+aa*d;if(Math.abs(d)<1e-300)d=1e-300;c=1+aa/c;if(Math.abs(c)<1e-300)c=1e-300;d=1/d;var dl=d*c;h*=dl;if(Math.abs(dl-1)<3e-10)break;}return fr*h;}
@@ -1466,6 +1956,303 @@
           document.getElementById('calc-'+t.dataset.calc).classList.add('active');
         });
       });
+    })();
+
+
+    /* ── STATX PRO CALCULATOR JS: pure browser, no R code, no external dependency ── */
+    (function(){
+      var EPS=1e-12, FPMIN=1e-300;
+      function E(id){return document.getElementById(id);} 
+      function v(id){var el=E(id);return el?el.value:'';}
+      function n(id){var x=parseFloat(v(id));return isFinite(x)?x:NaN;}
+      function fmt(x,d){
+        if(!isFinite(x)) return String(x);
+        d = d == null ? 6 : d;
+        var ax=Math.abs(x);
+        if((ax>0 && ax<1e-5) || ax>=1e6) return x.toExponential(6);
+        var s=x.toFixed(d);
+        return s.replace(/\.0+$/,'').replace(/(\.\d*?)0+$/,'$1');
+      }
+      function pct(x){return isFinite(x)?(100*x).toFixed(3).replace(/\.0+$/,'')+'%':'NaN';}
+      function err(id,msg){var el=E(id); if(el){el.textContent=msg; el.classList.add('show');}}
+      function clearErr(id){var el=E(id); if(el){el.textContent=''; el.classList.remove('show');}}
+      function result(id,title,rows,note){
+        var el=E(id); if(!el) return;
+        var h='<h4>'+title+'</h4><div class="statx-output-grid">';
+        rows.forEach(function(r){h+='<div class="statx-output"><span>'+r[0]+'</span><strong>'+r[1]+'</strong></div>';});
+        h+='</div>'+(note?'<p class="statx-note">'+note+'</p>':'');
+        el.innerHTML=h; el.classList.add('show');
+        var text=title+' | '+rows.map(function(r){return r[0]+': '+r[1];}).join(' | ')+(note?' | '+note:'');
+        addHistory(title,text);
+      }
+      function addHistory(title,text){
+        var list=E('statx-history-list'); if(!list) return;
+        var item=document.createElement('div'); item.className='statx-history-item'; item.textContent=text;
+        if(list.children.length===1 && list.children[0].textContent.indexOf('Run any calculator')===0) list.innerHTML='';
+        list.prepend(item); while(list.children.length>5) list.removeChild(list.lastChild);
+      }
+      function erf(x){
+        var sign=x<0?-1:1; x=Math.abs(x);
+        var a1=0.254829592,a2=-0.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=0.3275911;
+        var t=1/(1+p*x), y=1-(((((a5*t+a4)*t+a3)*t+a2)*t+a1)*t)*Math.exp(-x*x);
+        return sign*y;
+      }
+      function normCDF(x){return 0.5*(1+erf(x/Math.SQRT2));}
+      function normInv(p){
+        var a=[-39.69683028665376,220.9460984245205,-275.9285104469687,138.357751867269,-30.66479806614716,2.506628277459239];
+        var b=[-54.47609879822406,161.5858368580409,-155.6989798598866,66.80131188771972,-13.28068155288572];
+        var c=[-0.007784894002430293,-0.3223964580411365,-2.400758277161838,-2.549732539343734,4.374664141464968,2.938163982698783];
+        var d=[0.007784695709041462,0.3223907451786057,2.445134137142996,3.754408661907416];
+        if(p<=0||p>=1) return NaN; var q,r;
+        if(p<0.02425){q=Math.sqrt(-2*Math.log(p));return (((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+        if(p<=0.97575){q=p-0.5;r=q*q;return (((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);}
+        q=Math.sqrt(-2*Math.log(1-p));return -(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+      }
+      function lgamma(z){
+        var p=[0.99999999999980993,676.5203681218851,-1259.1392167224028,771.3234287776531,-176.6150291621406,12.507343278686905,-0.13857109526572012,9.984369578019571e-6,1.5056327351493116e-7];
+        if(z<0.5) return Math.log(Math.PI)-Math.log(Math.sin(Math.PI*z))-lgamma(1-z);
+        z-=1; var x=p[0]; for(var i=1;i<p.length;i++) x+=p[i]/(z+i);
+        var t=z+7.5; return 0.5*Math.log(2*Math.PI)+(z+0.5)*Math.log(t)-t+Math.log(x);
+      }
+      function betacf(a,b,x){
+        var qab=a+b,qap=a+1,qam=a-1,c=1,d=1-qab*x/qap,h;
+        if(Math.abs(d)<FPMIN)d=FPMIN; d=1/d; h=d;
+        for(var m=1;m<=200;m++){
+          var m2=2*m, aa=m*(b-m)*x/((qam+m2)*(a+m2));
+          d=1+aa*d; if(Math.abs(d)<FPMIN)d=FPMIN; c=1+aa/c; if(Math.abs(c)<FPMIN)c=FPMIN; d=1/d; h*=d*c;
+          aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2));
+          d=1+aa*d; if(Math.abs(d)<FPMIN)d=FPMIN; c=1+aa/c; if(Math.abs(c)<FPMIN)c=FPMIN; d=1/d; var del=d*c; h*=del;
+          if(Math.abs(del-1)<3e-14) break;
+        }
+        return h;
+      }
+      function ibeta(x,a,b){
+        if(x<=0)return 0; if(x>=1)return 1;
+        var bt=Math.exp(lgamma(a+b)-lgamma(a)-lgamma(b)+a*Math.log(x)+b*Math.log(1-x));
+        if(x<(a+1)/(a+b+2)) return bt*betacf(a,b,x)/a;
+        return 1-bt*betacf(b,a,1-x)/b;
+      }
+      function gammaP(a,x){
+        if(x<=0)return 0; if(a<=0)return NaN;
+        if(x<a+1){
+          var ap=a, del=1/a, sum=del;
+          for(var i=1;i<=1000;i++){ ap++; del*=x/ap; sum+=del; if(Math.abs(del)<Math.abs(sum)*3e-14) break; }
+          return sum*Math.exp(-x+a*Math.log(x)-lgamma(a));
+        }
+        var b=x+1-a, c=1/FPMIN, d=1/b, h=d;
+        for(var j=1;j<=1000;j++){
+          var an=-j*(j-a); b+=2; d=an*d+b; if(Math.abs(d)<FPMIN)d=FPMIN; c=b+an/c; if(Math.abs(c)<FPMIN)c=FPMIN; d=1/d; var del2=d*c; h*=del2; if(Math.abs(del2-1)<3e-14) break;
+        }
+        return 1-Math.exp(-x+a*Math.log(x)-lgamma(a))*h;
+      }
+      function tCDF(t,df){
+        if(df<=0)return NaN; if(t===0)return 0.5;
+        var x=df/(df+t*t), ib=ibeta(x,df/2,0.5);
+        return t>0 ? 1-0.5*ib : 0.5*ib;
+      }
+      function chiCDF(x,df){return x<=0?0:gammaP(df/2,x/2);}
+      function fCDF(x,df1,df2){return x<=0?0:ibeta((df1*x)/(df1*x+df2),df1/2,df2/2);}
+      function qBisection(cdf,p,lo,hi){
+        for(var guard=0; guard<80 && cdf(hi)<p; guard++) hi*=2;
+        for(var i=0;i<100;i++){var mid=(lo+hi)/2; if(cdf(mid)<p)lo=mid; else hi=mid;} return (lo+hi)/2;
+      }
+      function qT(p,df){if(p<=0||p>=1)return NaN;if(p<0.5)return -qT(1-p,df);return qBisection(function(x){return tCDF(x,df);},p,0,1);}
+      function qChi(p,df){if(p<=0||p>=1)return NaN;return qBisection(function(x){return chiCDF(x,df);},p,0,Math.max(1,df));}
+      function qF(p,df1,df2){if(p<=0||p>=1)return NaN;return qBisection(function(x){return fCDF(x,df1,df2);},p,0,1);}
+      function pByTail(cdfVal,tail,statAbsCDF){
+        if(tail==='right') return 1-cdfVal;
+        if(tail==='left') return cdfVal;
+        return Math.min(1, 2*Math.min(cdfVal,1-cdfVal));
+      }
+      function parseBound(s){s=String(s).trim().toLowerCase().replace(/[−–—]/g,'-'); if(['-inf','-infinity','-∞'].indexOf(s)>=0)return -Infinity; if(['inf','+inf','infinity','+infinity','∞','+∞'].indexOf(s)>=0)return Infinity; var x=parseFloat(s); return isFinite(x)?x:NaN;}
+      function nums(text){var m=String(text).match(/[-+]?(?:\d*\.\d+|\d+\.?\d*)(?:[eE][-+]?\d+)?/g)||[]; return m.map(Number).filter(isFinite);}
+      function quantile(sorted,p){var n=sorted.length;if(n===0)return NaN;var pos=(n-1)*p,lo=Math.floor(pos),hi=Math.ceil(pos);if(lo===hi)return sorted[lo];return sorted[lo]+(sorted[hi]-sorted[lo])*(pos-lo);}
+      function logChoose(n,k){return lgamma(n+1)-lgamma(k+1)-lgamma(n-k+1);}
+      function logSumExp(logs){var mx=Math.max.apply(null,logs); if(!isFinite(mx)) return mx; var s=0; logs.forEach(function(z){s+=Math.exp(z-mx);}); return mx+Math.log(s);}
+      function binomPMF(k,N,p){if(k<0||k>N)return 0;if(p===0)return k===0?1:0;if(p===1)return k===N?1:0;return Math.exp(logChoose(N,k)+k*Math.log(p)+(N-k)*Math.log(1-p));}
+      function binomRange(a,b,N,p){var logs=[];a=Math.max(0,Math.ceil(a));b=Math.min(N,Math.floor(b));for(var k=a;k<=b;k++){logs.push(logChoose(N,k)+k*Math.log(p)+(N-k)*Math.log(1-p));} return logs.length?Math.exp(logSumExp(logs)):0;}
+      function poisPMF(k,lam){if(k<0)return 0;if(lam===0)return k===0?1:0;return Math.exp(-lam+k*Math.log(lam)-lgamma(k+1));}
+      function poisRange(a,b,lam){var logs=[];a=Math.max(0,Math.ceil(a));b=Math.floor(b);for(var k=a;k<=b;k++){logs.push(-lam+k*Math.log(lam)-lgamma(k+1));} return logs.length?Math.exp(logSumExp(logs)):0;}
+
+      function betaLog(a,b){return lgamma(a)+lgamma(b)-lgamma(a+b);}
+      function normalPDF(x,mu,sd){var z=(x-mu)/sd;return Math.exp(-0.5*z*z)/(sd*Math.sqrt(2*Math.PI));}
+      function tPDF(x,df){return Math.exp(lgamma((df+1)/2)-lgamma(df/2)-0.5*Math.log(df*Math.PI)-((df+1)/2)*Math.log(1+x*x/df));}
+      function chiPDF(x,df){if(x<=0)return 0;return Math.exp((df/2-1)*Math.log(x)-x/2-(df/2)*Math.log(2)-lgamma(df/2));}
+      function fPDF(x,d1,d2){if(x<=0)return 0;return Math.exp((d1/2)*Math.log(d1/d2)+(d1/2-1)*Math.log(x)-((d1+d2)/2)*Math.log(1+d1*x/d2)-betaLog(d1/2,d2/2));}
+      function prepCanvas(id){
+        var c=E(id); if(!c||!c.getContext)return null;
+        var box=c.getBoundingClientRect ? c.getBoundingClientRect() : {width:900,height:300};
+        var w=Math.max(600, Math.round(box.width||900)), h=Math.max(260, Math.round(box.height||300));
+        var ratio=window.devicePixelRatio||1;
+        if(c.width!==Math.round(w*ratio)||c.height!==Math.round(h*ratio)){c.width=Math.round(w*ratio);c.height=Math.round(h*ratio);}
+        c.style.width=w+'px'; c.style.height=h+'px';
+        var ctx=c.getContext('2d'); ctx.setTransform(ratio,0,0,ratio,0,0); ctx.clearRect(0,0,w,h); return {c:c,ctx:ctx,w:w,h:h};
+      }
+      function drawBackdrop(ctx,w,h){
+        var g=ctx.createLinearGradient(0,0,w,h); g.addColorStop(0,'rgba(255,58,166,.10)'); g.addColorStop(.45,'rgba(124,92,255,.07)'); g.addColorStop(1,'rgba(0,255,209,.09)');
+        ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
+        ctx.strokeStyle='rgba(255,255,255,.08)'; ctx.lineWidth=1;
+        for(var i=1;i<5;i++){var y=22+(h-48)*i/5; ctx.beginPath();ctx.moveTo(38,y);ctx.lineTo(w-18,y);ctx.stroke();}
+      }
+      function drawCurve(id, xs, ys, opts){
+        opts=opts||{}; var P=prepCanvas(id); if(!P)return; var ctx=P.ctx,w=P.w,h=P.h, ml=42,mr=18,mt=18,mb=34;
+        drawBackdrop(ctx,w,h); var xmin=Math.min.apply(null,xs), xmax=Math.max.apply(null,xs), ymax=Math.max.apply(null,ys); if(!(ymax>0))ymax=1;
+        function X(x){return ml+(x-xmin)/(xmax-xmin)*(w-ml-mr);} function Y(y){return h-mb-(y/ymax)*(h-mt-mb);}
+        ctx.strokeStyle='rgba(255,255,255,.24)'; ctx.lineWidth=1.2; ctx.beginPath(); ctx.moveTo(ml,h-mb); ctx.lineTo(w-mr,h-mb); ctx.moveTo(ml,mt); ctx.lineTo(ml,h-mb); ctx.stroke();
+        var shadeList=[]; if(opts.shades) shadeList=opts.shades; else if(opts.shade) shadeList=[opts.shade];
+        shadeList.forEach(function(sh){
+          var lo=sh[0],hi=sh[1]; ctx.beginPath(); var started=false;
+          for(var i=0;i<xs.length;i++){ if(xs[i]>=lo && xs[i]<=hi){ if(!started){ctx.moveTo(X(xs[i]),h-mb); started=true;} ctx.lineTo(X(xs[i]),Y(ys[i])); } }
+          if(started){ var last=Math.min(hi,xmax), first=Math.max(lo,xmin); ctx.lineTo(X(last),h-mb); ctx.lineTo(X(first),h-mb); ctx.closePath(); var sg=ctx.createLinearGradient(0,0,w,0); sg.addColorStop(0,'rgba(255,58,166,.36)'); sg.addColorStop(1,'rgba(0,255,209,.28)'); ctx.fillStyle=sg; ctx.fill(); }
+        });
+        ctx.beginPath(); xs.forEach(function(x,i){var px=X(x),py=Y(ys[i]); if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);});
+        var lg=ctx.createLinearGradient(ml,0,w-mr,0); lg.addColorStop(0,'#ff3aa6'); lg.addColorStop(.5,'#ffd27a'); lg.addColorStop(1,'#00ffd1'); ctx.strokeStyle=lg; ctx.lineWidth=3; ctx.stroke();
+        if(isFinite(opts.mark)){var mx=X(opts.mark);ctx.strokeStyle='rgba(255,210,122,.85)';ctx.setLineDash([6,5]);ctx.beginPath();ctx.moveTo(mx,mt);ctx.lineTo(mx,h-mb);ctx.stroke();ctx.setLineDash([]);}
+        ctx.fillStyle='rgba(255,255,255,.62)'; ctx.font='12px Georgia'; ctx.fillText(fmt(xmin,3),ml,h-12); ctx.fillText(fmt(xmax,3),w-mr-46,h-12); if(opts.label)ctx.fillText(opts.label,ml+8,mt+13);
+      }
+      function drawBars(id, labels, vals, highlightIndex){
+        var P=prepCanvas(id); if(!P)return; var ctx=P.ctx,w=P.w,h=P.h, ml=42,mr=18,mt=18,mb=36; drawBackdrop(ctx,w,h);
+        var ymax=Math.max.apply(null,vals); if(!(ymax>0))ymax=1; var plotW=w-ml-mr, gap=3, bw=Math.max(3,(plotW/vals.length)-gap);
+        ctx.strokeStyle='rgba(255,255,255,.24)'; ctx.beginPath();ctx.moveTo(ml,h-mb);ctx.lineTo(w-mr,h-mb);ctx.moveTo(ml,mt);ctx.lineTo(ml,h-mb);ctx.stroke();
+        for(var i=0;i<vals.length;i++){var x=ml+i*(plotW/vals.length)+gap/2, bh=(vals[i]/ymax)*(h-mt-mb); var g=ctx.createLinearGradient(x,h-mb-bh,x,h-mb); if(i===highlightIndex){g.addColorStop(0,'#ffd27a');g.addColorStop(1,'#ff3aa6');}else{g.addColorStop(0,'rgba(0,255,209,.86)');g.addColorStop(1,'rgba(124,92,255,.62)');} ctx.fillStyle=g; ctx.fillRect(x,h-mb-bh,bw,bh);}
+        ctx.fillStyle='rgba(255,255,255,.62)';ctx.font='12px Georgia';ctx.fillText(String(labels[0]),ml,h-12);ctx.fillText(String(labels[labels.length-1]),w-mr-35,h-12);
+      }
+      function drawNormalCurve(mu,sd,lo,hi,x){var xs=[],ys=[],xmin=mu-4*sd,xmax=mu+4*sd;for(var i=0;i<=220;i++){var z=xmin+(xmax-xmin)*i/220;xs.push(z);ys.push(normalPDF(z,mu,sd));}drawCurve('stx-normal-chart',xs,ys,{shade:[Math.max(lo,xmin),Math.min(hi,xmax)],mark:x,label:'Normal density'});}
+      function drawTCurve(t,df,tail){var xs=[],ys=[],R=Math.max(4,Math.abs(t)+1);for(var i=0;i<=240;i++){var z=-R+2*R*i/240;xs.push(z);ys.push(tPDF(z,df));}var opts={mark:t,label:'t density'}; if(tail==='two')opts.shades=[[-R,-Math.abs(t)],[Math.abs(t),R]]; else opts.shade=tail==='left'?[-R,t]:[t,R]; drawCurve('stx-t-chart',xs,ys,opts);}
+      function drawChiCurve(x,df){var xs=[],ys=[],xmax=Math.max(qChi(.995,df),x*1.25,df+6*Math.sqrt(2*df));for(var i=0;i<=240;i++){var z=xmax*i/240;xs.push(z);ys.push(chiPDF(z,df));}drawCurve('stx-c-chart',xs,ys,{shade:[x,xmax],mark:x,label:'χ² density'});}
+      function drawFCurve(x,d1,d2){var xs=[],ys=[],xmax=Math.max(qF(.995,d1,d2),x*1.35,4);for(var i=0;i<=240;i++){var z=xmax*i/240;xs.push(z);ys.push(fPDF(z,d1,d2));}drawCurve('stx-f-chart',xs,ys,{shade:[x,xmax],mark:x,label:'F density'});}
+      function drawDiscrete(dist,x,N,p,lam){var labels=[],vals=[],hi=dist==='binom'?N:Math.max(x+8,Math.ceil(lam+5*Math.sqrt(Math.max(lam,1)))); hi=Math.min(hi,120);for(var k=0;k<=hi;k++){labels.push(k);vals.push(dist==='binom'?binomPMF(k,N,p):poisPMF(k,lam));}drawBars('stx-d-chart',labels,vals,x);}
+      function drawHistogram(data){var sorted=data.slice().sort(function(a,b){return a-b;}),n=sorted.length,min=sorted[0],max=sorted[n-1],bins=Math.max(5,Math.min(18,Math.ceil(Math.sqrt(n)))),labels=[],vals=[]; if(max===min){labels=[min];vals=[n];}else{for(var i=0;i<bins;i++){labels.push(fmt(min+(max-min)*i/bins,2));vals.push(0);} sorted.forEach(function(x){var j=Math.min(bins-1,Math.floor((x-min)/(max-min)*bins));vals[j]++;});}drawBars('stx-desc-chart',labels,vals,-1);}
+      function drawRoc(pts){var P=prepCanvas('stx-roc-chart'); if(!P)return; var ctx=P.ctx,w=P.w,h=P.h,ml=44,mr=22,mt=18,mb=38; drawBackdrop(ctx,w,h); function X(x){return ml+x*(w-ml-mr);} function Y(y){return h-mb-y*(h-mt-mb);} ctx.strokeStyle='rgba(255,255,255,.25)';ctx.beginPath();ctx.moveTo(ml,h-mb);ctx.lineTo(w-mr,h-mb);ctx.lineTo(w-mr,mt);ctx.stroke();ctx.strokeStyle='rgba(255,255,255,.28)';ctx.setLineDash([5,5]);ctx.beginPath();ctx.moveTo(ml,h-mb);ctx.lineTo(w-mr,mt);ctx.stroke();ctx.setLineDash([]);ctx.beginPath();pts.forEach(function(p,i){if(i===0)ctx.moveTo(X(p[0]),Y(p[1]));else ctx.lineTo(X(p[0]),Y(p[1]));});var lg=ctx.createLinearGradient(ml,0,w-mr,0);lg.addColorStop(0,'#ff3aa6');lg.addColorStop(.5,'#ffd27a');lg.addColorStop(1,'#00ffd1');ctx.strokeStyle=lg;ctx.lineWidth=3.2;ctx.stroke();ctx.fillStyle='#ffd27a';pts.forEach(function(p){ctx.beginPath();ctx.arc(X(p[0]),Y(p[1]),3.5,0,Math.PI*2);ctx.fill();});ctx.fillStyle='rgba(255,255,255,.62)';ctx.font='12px Georgia';ctx.fillText('FPR',w/2,h-12);ctx.save();ctx.translate(14,h/2);ctx.rotate(-Math.PI/2);ctx.fillText('TPR',0,0);ctx.restore();}
+
+      window.STX={
+        copyResult:function(id){
+          var el=E(id); if(!el)return; var txt=el.innerText||'';
+          function done(){addHistory('Copied','Result copied to clipboard.');}
+          function fallback(){try{var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}catch(e){}}
+          if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(fallback);}else{fallback();}
+        },
+        toggleDiscrete:function(){var isBin=v('stx-d-dist')==='binom';document.querySelectorAll('.stx-binomial-only').forEach(function(x){x.classList.toggle('statx-hide',!isBin);});document.querySelectorAll('.stx-poisson-only').forEach(function(x){x.classList.toggle('statx-hide',isBin);});},
+        normalArea:function(){
+          clearErr('stx-normal-err'); var mu=n('stx-n-mu'), sd=n('stx-n-sd'), lo=parseBound(v('stx-n-lo')), hi=parseBound(v('stx-n-hi')), x=n('stx-n-x');
+          if(!isFinite(mu)||!isFinite(sd)||sd<=0||isNaN(lo)||isNaN(hi)||lo>=hi) return err('stx-normal-err','Check μ, σ, and bounds. SD must be positive and lower bound must be below upper bound.');
+          var zlo=(lo-mu)/sd, zhi=(hi-mu)/sd, area=(isFinite(zhi)?normCDF(zhi):1)-(isFinite(zlo)?normCDF(zlo):0);
+          var zx=(x-mu)/sd, left=normCDF(zx), right=1-left, two=2*Math.min(left,right);
+          result('stx-normal-res','Normal / Z results',[
+            ['Area between bounds',fmt(area)],['Area percent',pct(area)],['z lower',fmt(zlo)],['z upper',fmt(zhi)],['For observed x/z: z',fmt(zx)],['Left-tail P(X≤x)',fmt(left)],['Right-tail P(X≥x)',fmt(right)],['Two-tailed p-value',fmt(two)]
+          ],'Bounds use μ='+fmt(mu)+' and σ='+fmt(sd)+'. This covers normal curve area/AUC table lookups.');
+          drawNormalCurve(mu,sd,lo,hi,x);
+        },
+        normalCritical:function(){
+          clearErr('stx-normal-err'); var mu=n('stx-n-mu'), sd=n('stx-n-sd'), p=n('stx-n-prob');
+          if(!isFinite(mu)||!isFinite(sd)||sd<=0||p<=0||p>=1) return err('stx-normal-err','Check μ, σ, and probability. Probability must be between 0 and 1.');
+          var z=normInv(p), x=mu+sd*z;
+          result('stx-normal-res','Normal critical value',[["z critical",fmt(z)],["x critical",fmt(x)],["Left-tail probability",fmt(p)],["Right-tail probability",fmt(1-p)]],'Equivalent to qnorm('+fmt(p)+', mean='+fmt(mu)+', sd='+fmt(sd)+').');
+          drawNormalCurve(mu,sd,-Infinity,x,x);
+        },
+        tCalc:function(){
+          clearErr('stx-t-err'); var t=n('stx-t-val'), df=n('stx-t-df'), a=n('stx-t-alpha'), tail=v('stx-t-tail');
+          if(!isFinite(t)||!isFinite(df)||df<=0||a<=0||a>=1) return err('stx-t-err','Check t, df, and alpha.');
+          var c=tCDF(t,df), p=pByTail(c,tail), crit=tail==='two'?qT(1-a/2,df):(tail==='left'?qT(a,df):qT(1-a,df));
+          result('stx-t-res','t distribution results',[["CDF P(T≤t)",fmt(c)],["p-value",fmt(p)],["Critical t",fmt(crit)],["df",fmt(df,3)]],(tail==='two'?'Two-tailed':'One-tailed')+' calculation.');
+          drawTCurve(t,df,tail);
+        },
+        chisqCalc:function(){
+          clearErr('stx-c-err'); var x=n('stx-c-val'), df=n('stx-c-df'), a=n('stx-c-alpha');
+          if(!isFinite(x)||x<0||!isFinite(df)||df<=0||a<=0||a>=1) return err('stx-c-err','Check chi-square statistic, df, and alpha.');
+          var c=chiCDF(x,df), crit=qChi(1-a,df);
+          result('stx-c-res','Chi-square results',[["CDF P(χ²≤x)",fmt(c)],["Right-tail p-value",fmt(1-c)],["Critical χ²",fmt(crit)],["df",fmt(df,3)]],'Most chi-square tests use the right-tail p-value.');
+          drawChiCurve(x,df);
+        },
+        fCalc:function(){
+          clearErr('stx-f-err'); var x=n('stx-f-val'), d1=n('stx-f-df1'), d2=n('stx-f-df2'), a=n('stx-f-alpha');
+          if(!isFinite(x)||x<0||!isFinite(d1)||d1<=0||!isFinite(d2)||d2<=0||a<=0||a>=1) return err('stx-f-err','Check F statistic, df1, df2, and alpha.');
+          var c=fCDF(x,d1,d2), crit=qF(1-a,d1,d2);
+          result('stx-f-res','F distribution results',[["CDF P(F≤x)",fmt(c)],["Right-tail p-value",fmt(1-c)],["Critical F",fmt(crit)],["df1, df2",fmt(d1,2)+', '+fmt(d2,2)]],'Most F tests use the right-tail p-value.');
+          drawFCurve(x,d1,d2);
+        },
+        discreteCalc:function(){
+          clearErr('stx-d-err'); var dist=v('stx-d-dist'), x=Math.floor(n('stx-d-x'));
+          if(!isFinite(x)||x<0) return err('stx-d-err','x must be a nonnegative integer.');
+          if(dist==='binom'){
+            var N=Math.floor(n('stx-d-n')), p=n('stx-d-p'); if(!isFinite(N)||N<0||x>N||p<0||p>1) return err('stx-d-err','For binomial, use n ≥ 0, 0 ≤ p ≤ 1, and x ≤ n.');
+            var exact=binomPMF(x,N,p), left=binomRange(0,x,N,p), right=binomRange(x,N,N,p);
+            result('stx-d-res','Binomial results',[["P(X = x)",fmt(exact)],["P(X ≤ x)",fmt(left)],["P(X ≥ x)",fmt(right)],["Mean np",fmt(N*p)],["Variance np(1-p)",fmt(N*p*(1-p))],["n, p, x",N+', '+fmt(p)+', '+x]],'Exact binomial probabilities.');
+            drawDiscrete('binom',x,N,p,NaN);
+          } else {
+            var lam=n('stx-d-lam'); if(!isFinite(lam)||lam<0) return err('stx-d-err','For Poisson, lambda must be nonnegative.');
+            var pe=poisPMF(x,lam), pl=poisRange(0,x,lam), pr=1-poisRange(0,x-1,lam);
+            result('stx-d-res','Poisson results',[["P(X = x)",fmt(pe)],["P(X ≤ x)",fmt(pl)],["P(X ≥ x)",fmt(pr)],["Mean λ",fmt(lam)],["Variance λ",fmt(lam)],["x",x]],'Exact Poisson probabilities.');
+            drawDiscrete('pois',x,NaN,NaN,lam);
+          }
+        },
+        descCalc:function(){
+          clearErr('stx-desc-err'); var data=nums(v('stx-desc-data')); if(data.length<2) return err('stx-desc-err','Paste at least two numeric values.');
+          data.sort(function(a,b){return a-b;}); var N=data.length, sum=data.reduce(function(a,b){return a+b;},0), mean=sum/N;
+          var ss=data.reduce(function(s,x){return s+(x-mean)*(x-mean);},0), svar=ss/(N-1), pvar=ss/N, sd=Math.sqrt(svar), psd=Math.sqrt(pvar), med=quantile(data,.5), q1=quantile(data,.25), q3=quantile(data,.75), min=data[0], max=data[N-1], se=sd/Math.sqrt(N);
+          var m3=sd>0?data.reduce(function(s,x){return s+Math.pow((x-mean)/sd,3);},0)/N:0, m4=sd>0?data.reduce(function(s,x){return s+Math.pow((x-mean)/sd,4);},0)/N:3;
+          result('stx-desc-res','Descriptive statistics',[["n",N],["Mean",fmt(mean)],["Median",fmt(med)],["Sample SD",fmt(sd)],["Sample variance",fmt(svar)],["Population SD",fmt(psd)],["Min / Max",fmt(min)+' / '+fmt(max)],["Q1 / Q3",fmt(q1)+' / '+fmt(q3)],["IQR",fmt(q3-q1)],["SE mean",fmt(se)],["Skewness",fmt(m3)],["Excess kurtosis",fmt(m4-3)]],'Paste-data summary; sample SD uses denominator n−1.');
+          drawHistogram(data);
+        },
+        ciCalc:function(){
+          clearErr('stx-ci-err'); var type=v('stx-ci-type'), conf=n('stx-ci-conf'), N=Math.floor(n('stx-ci-n')), method=v('stx-ci-method');
+          if(conf<=0||conf>=1||N<1) return err('stx-ci-err','Confidence must be between 0 and 1 and n must be positive.');
+          var a=1-conf;
+          if(type==='mean'){
+            var mean=n('stx-ci-mean'), sd=n('stx-ci-sd'); if(!isFinite(mean)||!isFinite(sd)||sd<=0||N<2) return err('stx-ci-err','For a mean CI, enter mean, positive SD, and n ≥ 2.');
+            var crit=method==='t'?qT(1-a/2,N-1):normInv(1-a/2), se=sd/Math.sqrt(N), lo=mean-crit*se, hi=mean+crit*se;
+            result('stx-ci-res','Confidence interval for mean',[["Lower",fmt(lo)],["Upper",fmt(hi)],["Margin of error",fmt(crit*se)],["Critical value",fmt(crit)],["SE",fmt(se)],["Method",method==='t'?'t, df='+(N-1):'z']],'CI = estimate ± critical × SE.');
+          } else {
+            var x=Math.floor(n('stx-ci-x')); if(x<0||x>N) return err('stx-ci-err','For a proportion CI, successes x must be between 0 and n.');
+            var ph=x/N, z=normInv(1-a/2), lo, hi;
+            if(method==='z') { var se=Math.sqrt(ph*(1-ph)/N); lo=ph-z*se; hi=ph+z*se; }
+            else { var denom=1+z*z/N, center=(ph+z*z/(2*N))/denom, half=z*Math.sqrt((ph*(1-ph)+z*z/(4*N))/N)/denom; lo=center-half; hi=center+half; }
+            result('stx-ci-res','Confidence interval for proportion',[["p̂",fmt(ph)],["Lower",fmt(Math.max(0,lo))],["Upper",fmt(Math.min(1,hi))],["Percent CI",pct(Math.max(0,lo))+' to '+pct(Math.min(1,hi))],["Critical z",fmt(z)],["Method",method==='z'?'Wald':'Wilson']],'Wilson is usually safer than Wald, especially near 0/1 or with small n.');
+          }
+        },
+        testCalc:function(){
+          clearErr('stx-test-err'); var type=v('stx-test-type'), stat=n('stx-test-stat'), df=n('stx-test-df'), df2=n('stx-test-df2'), r=n('stx-test-r'), tail=v('stx-test-tail'), c,p;
+          if(type==='z') { if(!isFinite(stat)) return err('stx-test-err','Enter a z statistic.'); c=normCDF(stat); p=pByTail(c,tail); result('stx-test-res','z test p-value',[["z",fmt(stat)],["CDF",fmt(c)],["p-value",fmt(p)],["Tail",tail]],'Two-tailed uses 2 × smaller tail area.'); }
+          else if(type==='t') { if(!isFinite(stat)||df<=0) return err('stx-test-err','Enter t statistic and positive df.'); c=tCDF(stat,df); p=pByTail(c,tail); result('stx-test-res','t test p-value',[["t",fmt(stat)],["df",fmt(df,3)],["CDF",fmt(c)],["p-value",fmt(p)]],''); }
+          else if(type==='chisq') { if(stat<0||df<=0) return err('stx-test-err','Enter nonnegative χ² statistic and positive df.'); c=chiCDF(stat,df); result('stx-test-res','χ² test p-value',[["χ²",fmt(stat)],["df",fmt(df,3)],["Right-tail p-value",fmt(1-c)],["CDF",fmt(c)]],'Chi-square tests are usually right-tailed.'); }
+          else if(type==='f') { if(stat<0||df<=0||df2<=0) return err('stx-test-err','Enter nonnegative F statistic, df1, and df2.'); c=fCDF(stat,df,df2); result('stx-test-res','F test p-value',[["F",fmt(stat)],["df1, df2",fmt(df,2)+', '+fmt(df2,2)],["Right-tail p-value",fmt(1-c)],["CDF",fmt(c)]],'F tests are usually right-tailed.'); }
+          else { if(r<=-1||r>=1||df<3) return err('stx-test-err','For correlation, enter r between -1 and 1 and n ≥ 3 in the df/n field.'); var N=df, t=r*Math.sqrt((N-2)/(1-r*r)); c=tCDF(t,N-2); p=2*Math.min(c,1-c); result('stx-test-res','Correlation test',[["r",fmt(r)],["n",N],["t statistic",fmt(t)],["df",N-2],["Two-tailed p-value",fmt(p)]],'Tests H0: ρ = 0 using t = r√((n−2)/(1−r²)).'); }
+        },
+        rocCalc:function(){
+          clearErr('stx-roc-err'); var lines=String(v('stx-roc-data')).trim().split(/\n+/), pts=[];
+          lines.forEach(function(line){var a=nums(line); if(a.length>=2) pts.push([a[0],a[1]]);});
+          if(pts.length<2) return err('stx-roc-err','Enter at least two FPR,TPR pairs.');
+          var bad=pts.some(function(p){return p[0]<0||p[0]>1||p[1]<0||p[1]>1;});
+          if(bad) return err('stx-roc-err','FPR and TPR values must be between 0 and 1.');
+          pts.sort(function(a,b){return a[0]-b[0];}); var auc=0;
+          for(var i=1;i<pts.length;i++){auc+=(pts[i][0]-pts[i-1][0])*(pts[i][1]+pts[i-1][1])/2;}
+          var interp=auc<0.6?'poor / weak':auc<0.7?'fair':auc<0.8?'acceptable':auc<0.9?'excellent':'outstanding';
+          result('stx-roc-res','ROC AUC results',[["AUC",fmt(auc)],["Interpretation",interp],["Points used",pts.length],["First point",fmt(pts[0][0])+', '+fmt(pts[0][1])],["Last point",fmt(pts[pts.length-1][0])+', '+fmt(pts[pts.length-1][1])]],'Trapezoidal AUC after sorting points by false-positive rate. Include endpoints (0,0) and (1,1) for a complete ROC curve.');
+          drawRoc(pts);
+        }
+      };
+      document.querySelectorAll('.statx-tab').forEach(function(btn){
+        btn.addEventListener('click',function(){
+          document.querySelectorAll('.statx-tab').forEach(function(b){b.classList.remove('active');});
+          document.querySelectorAll('.statx-panel').forEach(function(p){p.classList.remove('active');});
+          btn.classList.add('active'); var panel=E('statx-'+btn.dataset.statx); if(panel)panel.classList.add('active');
+        });
+      });
+      var statTools=E('stattools'); if(statTools){
+        statTools.addEventListener('keydown',function(e){ if(e.key==='Enter' && e.target.tagName!=='TEXTAREA'){ var p=e.target.closest('.statx-panel'); if(!p)return; var b=p.querySelector('.statx-btn:not(.secondary)'); if(b)b.click(); } });
+      }
+      STX.toggleDiscrete();
+      setTimeout(function(){
+        try{
+          drawNormalCurve(n('stx-n-mu'), n('stx-n-sd'), parseBound(v('stx-n-lo')), parseBound(v('stx-n-hi')), n('stx-n-x'));
+          drawTCurve(n('stx-t-val'), n('stx-t-df'), v('stx-t-tail'));
+          drawChiCurve(n('stx-c-val'), n('stx-c-df'));
+          drawFCurve(n('stx-f-val'), n('stx-f-df1'), n('stx-f-df2'));
+          drawDiscrete(v('stx-d-dist'), Math.floor(n('stx-d-x')), Math.floor(n('stx-d-n')), n('stx-d-p'), n('stx-d-lam'));
+          drawHistogram(nums(v('stx-desc-data')));
+          var lines=String(v('stx-roc-data')).trim().split(/\n+/), pts=[]; lines.forEach(function(line){var a=nums(line); if(a.length>=2) pts.push([a[0],a[1]]);}); pts.sort(function(a,b){return a[0]-b[0];}); if(pts.length>1)drawRoc(pts);
+        }catch(_){ }
+      },80);
     })();
 
   </script>
