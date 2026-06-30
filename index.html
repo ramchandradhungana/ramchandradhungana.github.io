@@ -60,14 +60,44 @@
       border-bottom: 1px solid rgba(184,134,11,0.35);
       text-align: center; padding: .42rem 0;
     }
-    #live-clock {
-      font-size: .95rem; font-weight: 700; letter-spacing: .08em;
-      font-family: monospace;
-      background: linear-gradient(90deg, #FFD700, #00e5c9, #FFD700);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 0 6px rgba(255,215,0,.55));
+
+    @keyframes neonFlicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        color: #00e5c9;
+        text-shadow:
+          0 0 4px rgba(0,229,201,.4),
+          0 0 10px rgba(0,229,201,.25);
+        opacity: 1;
+      }
+      20%, 24% {
+        color: #00e5c9;
+        text-shadow: none;
+        opacity: 0.4;
+      }
+      55% {
+        color: #c864ff;
+        text-shadow:
+          0 0 4px rgba(200,100,255,.35),
+          0 0 10px rgba(200,100,255,.2);
+        opacity: 0.6;
+      }
     }
+    @keyframes flipIn {
+      0%   { transform: perspective(300px) rotateX(-90deg); opacity: 0; }
+      60%  { transform: perspective(300px) rotateX(10deg);  opacity: 1; }
+      100% { transform: perspective(300px) rotateX(0deg);   opacity: 1; }
+    }
+    #live-clock {
+      font-size: .95rem; font-weight: 700; letter-spacing: .1em;
+      font-family: monospace;
+      color: #00fff0;
+      text-shadow:
+        0 0 4px rgba(0,229,201,.4),
+        0 0 10px rgba(0,229,201,.25);
+      animation: neonFlicker 6s infinite;
+      display: inline-block;
+    }
+    #live-clock.flip { animation: neonFlicker 6s infinite, flipIn 0.35s ease-out; }
     .nav {
       position: fixed; top: 34px; left: 0; right: 0; z-index: 900;
       background: rgba(7,24,40,0.97);
@@ -1861,11 +1891,16 @@
     var s = String(now.getSeconds()).padStart(2,'0');
     var ampm = h >= 12 ? 'PM' : 'AM';
     h = h % 12 || 12;
-    document.getElementById('live-clock').textContent =
-      d + ', ' + mo + ' ' + dt + ', ' + yr + ' · ' + h + ':' + m + ':' + s + ' ' + ampm;
+    var el = document.getElementById('live-clock');
+    el.textContent = d + ', ' + mo + ' ' + dt + ', ' + yr + ' · ' + h + ':' + m + ':' + s + ' ' + ampm;
+    el.classList.remove('flip');
+    void el.offsetWidth; // force reflow to retrigger animation
+    el.classList.add('flip');
   }
   updateClock();
   setInterval(updateClock, 1000);
+
+
 
     const toggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
