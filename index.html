@@ -528,7 +528,7 @@
     #calculator::before { content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse at 15% 25%,rgba(0,212,255,.10) 0%,transparent 55%),radial-gradient(ellipse at 85% 75%,rgba(184,134,11,.12) 0%,transparent 55%); animation:calcGlow 10s ease-in-out infinite alternate; }
     @keyframes calcGlow { 0%{opacity:.8} 100%{opacity:1.2;transform:scale(1.04)} }
     .calc-section-hd { text-align:center; margin-bottom:2rem; }
-    .calc-section-hd h2 { color:#fff; text-shadow:0 0 28px rgba(0,212,255,.35); }
+    .calc-section-hd h2 { color:#fff; text-shadow:0 0 28px rgba(0,212,255,.35); font-size:clamp(1.8rem,3vw,2.5rem); }
     .calc-intro { max-width:680px; margin:0 auto .5rem; text-align:center; color:rgba(255,255,255,.65); font-size:.98rem; line-height:1.7; }
     .calc-divider { width:60px; height:3px; background:linear-gradient(90deg,#00d4ff,#B8860B); border-radius:2px; margin:.5rem auto 1.8rem; box-shadow:0 0 14px rgba(0,212,255,.5); }
     .calc-subtitle { text-align:center; color:rgba(255,255,255,.4); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:2rem; font-style:italic; }
@@ -698,7 +698,7 @@
 }
 .statx-hd h2 {
   margin-top: .9rem;
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
   line-height: 1.05;
   color: #fff;
   text-shadow: 0 0 34px rgba(255,58,166,.28);
