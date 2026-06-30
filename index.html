@@ -57,15 +57,19 @@
     #clock-bar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 901;
       background: rgba(7,24,40,0.97);
-      border-bottom: 1px solid rgba(184,134,11,0.25);
-      text-align: center; padding: .28rem 0;
+      border-bottom: 1px solid rgba(184,134,11,0.35);
+      text-align: center; padding: .42rem 0;
     }
     #live-clock {
-      font-size: .72rem; font-weight: 600; letter-spacing: .05em;
-      color: var(--gold); font-family: monospace;
+      font-size: .95rem; font-weight: 700; letter-spacing: .08em;
+      font-family: monospace;
+      background: linear-gradient(90deg, #FFD700, #00e5c9, #FFD700);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 6px rgba(255,215,0,.55));
     }
     .nav {
-      position: fixed; top: 28px; left: 0; right: 0; z-index: 900;
+      position: fixed; top: 34px; left: 0; right: 0; z-index: 900;
       background: rgba(7,24,40,0.97);
       backdrop-filter: blur(14px);
       border-bottom: 2px solid var(--gold);
