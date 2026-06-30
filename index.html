@@ -113,10 +113,6 @@
       font-size: 1rem; letter-spacing: 0.06em; font-weight: 700;
       color: var(--gold); text-transform: uppercase; white-space: nowrap;
     }
-    @keyframes spinRing {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
     @keyframes floatBob {
       0%,100% { transform: translateY(0px); }
       50%     { transform: translateY(-8px); }
@@ -126,18 +122,11 @@
       50%     { box-shadow: 0 0 0 4px rgba(255,255,255,1), 0 0 35px rgba(255,255,255,1), 0 0 90px rgba(255,248,220,.95), 0 0 180px rgba(255,235,180,.65); }
     }
     .logo-ring-wrap {
-      position: relative; display: inline-block;
-      isolation: isolate;
+      display: inline-block;
       animation: floatBob 3s ease-in-out infinite;
       transition: transform .3s ease;
     }
     .logo-ring-wrap:hover { transform: scale(1.1); }
-    .logo-ring-wrap::after {
-      content: ''; position: absolute; inset: -4px; border-radius: 20px;
-      background: conic-gradient(from 0deg, #ff0000, #ff8c00, #FFD700, #00ff88, #00bfff, #8b00ff, #ff0000);
-      animation: spinRing 2.5s linear infinite;
-      z-index: -1;
-    }
     .nav-logo, .footer-logo { animation: pulseGlow 2s ease-in-out infinite; }
     .nav-logo {
       width: 104px; height: 104px; object-fit: cover;
