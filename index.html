@@ -1939,11 +1939,11 @@
         tt2:function(){var d=gv('tt2-delta'),s=gv('tt2-sigma'),a=gv('tt2-alpha'),pw=gv('tt2-power');if(!d||d<=0)return sE('tt2','Mean difference must be > 0');if(!s||s<=0)return sE('tt2','SD must be > 0');var z=za2(a)+zb(pw),n=cl(2*s*s*z*z/(d*d));sR('tt2',n,'Total: '+(n*2)+' | Effect d='+((d/s).toFixed(3)));},
         tt1:function(){var d=gv('tt1-delta'),s=gv('tt1-sigma'),a=gv('tt1-alpha'),pw=gv('tt1-power'),t=parseInt(document.getElementById('tt1-tail').value);if(!d||d<=0)return sE('tt1','Effect size must be > 0');if(!s||s<=0)return sE('tt1','SD must be > 0');var za=t===2?za2(a):za1(a),n=cl(s*s*(za+zb(pw))*(za+zb(pw))/(d*d));sR('tt1',n,(t===2?'Two':'One')+'-tailed | d='+((d/s).toFixed(3)));},
         pr:function(){var d=gv('pr-delta'),s=gv('pr-sigma'),a=gv('pr-alpha'),pw=gv('pr-power');if(!d||d<=0)return sE('pr','Mean difference must be > 0');if(!s||s<=0)return sE('pr','SD must be > 0');var z=za2(a)+zb(pw),n=cl(s*s*z*z/(d*d));sR('pr',n,n+' pairs | d='+((d/s).toFixed(3)));},
-        p2:function(){var p1=gv('p2-p1'),p2=gv('p2-p2'),a=gv('p2-alpha'),pw=gv('p2-power');if(p1<=0||p1>=1||p2<=0||p2>=1)return sE('p2','Proportions must be 0–1');if(p1===p2)return sE('p2','Proportions must differ');var pb=(p1+p2)/2,num=za2(a)*Math.sqrt(2*pb*(1-pb))+zb(pw)*Math.sqrt(p1*(1-p1)+p2*(1-p2)),n=cl(num*num/((p1-p2)*(p1-p2)));sR('p2',n,'Total:'+(n*2)+' ARD='+Math.abs(p2-p1).toFixed(2)+' NNT≈'+cl(1/Math.abs(p2-p1)));},
+        p2:function(){var p1=gv('p2-p1'),p2=gv('p2-p2'),a=gv('p2-alpha'),pw=gv('p2-power');if(!isFinite(p1)||!isFinite(p2)||p1<=0||p1>=1||p2<=0||p2>=1)return sE('p2','Proportions must be 0–1');if(p1===p2)return sE('p2','Proportions must differ');var pb=(p1+p2)/2,num=za2(a)*Math.sqrt(2*pb*(1-pb))+zb(pw)*Math.sqrt(p1*(1-p1)+p2*(1-p2)),n=cl(num*num/((p1-p2)*(p1-p2)));sR('p2',n,'Total:'+(n*2)+' ARD='+Math.abs(p2-p1).toFixed(2)+' NNT≈'+cl(1/Math.abs(p2-p1)));},
         cs:function(){var wc=gv('cs-wc'),w=wc>0?wc:gv('cs-w'),a=gv('cs-alpha'),pw=gv('cs-power');if(!w||w<=0)return sE('cs','Effect size w must be > 0');var z=za2(a)+zb(pw),n=cl(z*z/(w*w));sR('cs',n,'w='+w.toFixed(3)+' ('+(w<.2?'small':w<.4?'medium':'large')+')');},
-        lr:function(){var hr=gv('lr-hr'),p1=gv('lr-p1'),p2=gv('lr-p2'),a=gv('lr-alpha'),pw=gv('lr-power');if(!hr||hr<=0)return sE('lr','HR must be > 0');if(hr===1)return sE('lr','HR=1 implies no effect');if(p1<=0||p1>=1||p2<=0||p2>=1)return sE('lr','Event rates must be 0–1');var d=cl((za2(a)+zb(pw))*(za2(a)+zb(pw))*(1+hr)*(1+hr)/((1-hr)*(1-hr))),n=cl(d/((p1+p2)/2)/2);sR('lr',n,'Events: '+d+' Total: '+(n*2)+' HR='+hr);},
+        lr:function(){var hr=gv('lr-hr'),p1=gv('lr-p1'),p2=gv('lr-p2'),a=gv('lr-alpha'),pw=gv('lr-power');if(!hr||hr<=0)return sE('lr','HR must be > 0');if(hr===1)return sE('lr','HR=1 implies no effect');if(!isFinite(p1)||!isFinite(p2)||p1<=0||p1>=1||p2<=0||p2>=1)return sE('lr','Event rates must be 0–1');var d=cl((za2(a)+zb(pw))*(za2(a)+zb(pw))*(1+hr)*(1+hr)/((1-hr)*(1-hr))),n=cl(d/((p1+p2)/2)/2);sR('lr',n,'Events: '+d+' Total: '+(n*2)+' HR='+hr);},
         an:function(){var k=parseInt(document.getElementById('an-k').value)||3,fc=gv('an-fc'),f=fc>0?fc:gv('an-f'),a=gv('an-alpha'),pw=gv('an-power');if(!f||f<=0)return sE('an','f must be > 0');if(k<2)return sE('an','Need ≥2 groups');var df1=k-1,lu=k*f*f,found=-1;for(var n=2;n<=5000;n++){var df2=k*(n-1),ncp=n*lu,Fc=_fQ(1-a,df1,df2),achieved=1-_ncfCDF(Fc,df1,df2,ncp);if(achieved>=pw){found=n;break;}}if(found<0)return sE('an','Cannot solve — try smaller f or power');sR('an',found,k+' groups × '+found+' = '+(k*found)+' total | f='+f.toFixed(3)+' (≈R pwr.anova.test)');},
-        co:function(){var r=gv('co-r'),r0=gv('co-r0')||0,a=gv('co-alpha'),pw=gv('co-power');if(r<=-1||r>=1)return sE('co','r must be −1 to 1');if(r===r0)return sE('co','r equals null r₀');var zr=.5*Math.log((1+r)/(1-r)),zr0=.5*Math.log((1+r0)/(1-r0)),n=cl((za2(a)+zb(pw))*(za2(a)+zb(pw))/((zr-zr0)*(zr-zr0)))+3;sR('co',n,'r='+r+' | Fisher z='+zr.toFixed(4));},
+        co:function(){var r=gv('co-r'),r0=gv('co-r0')||0,a=gv('co-alpha'),pw=gv('co-power');if(!isFinite(r)||!isFinite(r0)||r<=-1||r>=1||r0<=-1||r0>=1)return sE('co','r and r₀ must be −1 to 1');if(r===r0)return sE('co','r equals null r₀');var zr=.5*Math.log((1+r)/(1-r)),zr0=.5*Math.log((1+r0)/(1-r0)),n=cl((za2(a)+zb(pw))*(za2(a)+zb(pw))/((zr-zr0)*(zr-zr0)))+3;sR('co',n,'r='+r+' | Fisher z='+zr.toFixed(4));},
         ni:function(){var d=gv('ni-delta')||0,m=gv('ni-margin'),s1=gv('ni-s1'),s2=gv('ni-s2'),a=gv('ni-alpha'),pw=gv('ni-power');if(!m||m<=0)return sE('ni','Margin must be > 0');if(!s1||s1<=0||!s2||s2<=0)return sE('ni','SDs must be > 0');if(d>=m)return sE('ni','δ must be < margin');var n=cl((za1(a)+zb(pw))*(za1(a)+zb(pw))*(s1*s1+s2*s2)/((m-d)*(m-d)));sR('ni',n,'Total:'+(n*2)+' M='+m+' δ='+d);},
         ciw:function(){var s=gv('ciw-sigma'),W=gv('ciw-width'),conf=gv('ciw-conf');if(!s||s<=0)return sE('ciw','SD must be > 0');if(!W||W<=0)return sE('ciw','Width must be > 0');var a=1-conf,z=za2(a),n=cl((z*s/(W/2))*(z*s/(W/2)));sR('ciw',n,(conf*100).toFixed(0)+'% CI ±'+(z*s/Math.sqrt(n)).toFixed(3));},
       };
@@ -1974,7 +1974,7 @@
         return s.replace(/\.0+$/,'').replace(/(\.\d*?)0+$/,'$1');
       }
       function pct(x){return isFinite(x)?(100*x).toFixed(3).replace(/\.0+$/,'')+'%':'NaN';}
-      function err(id,msg){var el=E(id); if(el){el.textContent=msg; el.classList.add('show');}}
+      function err(id,msg){var el=E(id); if(el){el.textContent=msg; el.classList.add('show');} var res=E(id.replace(/-err$/,'-res')); if(res)res.classList.remove('show');}
       function clearErr(id){var el=E(id); if(el){el.textContent=''; el.classList.remove('show');}}
       function result(id,title,rows,note){
         var el=E(id); if(!el) return;
@@ -2135,7 +2135,7 @@
         toggleDiscrete:function(){var isBin=v('stx-d-dist')==='binom';document.querySelectorAll('.stx-binomial-only').forEach(function(x){x.classList.toggle('statx-hide',!isBin);});document.querySelectorAll('.stx-poisson-only').forEach(function(x){x.classList.toggle('statx-hide',isBin);});},
         normalArea:function(){
           clearErr('stx-normal-err'); var mu=n('stx-n-mu'), sd=n('stx-n-sd'), lo=parseBound(v('stx-n-lo')), hi=parseBound(v('stx-n-hi')), x=n('stx-n-x');
-          if(!isFinite(mu)||!isFinite(sd)||sd<=0||isNaN(lo)||isNaN(hi)||lo>=hi) return err('stx-normal-err','Check μ, σ, and bounds. SD must be positive and lower bound must be below upper bound.');
+          if(!isFinite(mu)||!isFinite(sd)||sd<=0||isNaN(lo)||isNaN(hi)||lo>=hi||!isFinite(x)) return err('stx-normal-err','Check μ, σ, bounds, and observed x/z. SD must be positive and lower bound must be below upper bound.');
           var zlo=(lo-mu)/sd, zhi=(hi-mu)/sd, area=(isFinite(zhi)?normCDF(zhi):1)-(isFinite(zlo)?normCDF(zlo):0);
           var zx=(x-mu)/sd, left=normCDF(zx), right=1-left, two=2*Math.min(left,right);
           result('stx-normal-res','Normal / Z results',[
@@ -2145,28 +2145,28 @@
         },
         normalCritical:function(){
           clearErr('stx-normal-err'); var mu=n('stx-n-mu'), sd=n('stx-n-sd'), p=n('stx-n-prob');
-          if(!isFinite(mu)||!isFinite(sd)||sd<=0||p<=0||p>=1) return err('stx-normal-err','Check μ, σ, and probability. Probability must be between 0 and 1.');
+          if(!isFinite(mu)||!isFinite(sd)||sd<=0||!isFinite(p)||p<=0||p>=1) return err('stx-normal-err','Check μ, σ, and probability. Probability must be between 0 and 1.');
           var z=normInv(p), x=mu+sd*z;
           result('stx-normal-res','Normal critical value',[["z critical",fmt(z)],["x critical",fmt(x)],["Left-tail probability",fmt(p)],["Right-tail probability",fmt(1-p)]],'Equivalent to qnorm('+fmt(p)+', mean='+fmt(mu)+', sd='+fmt(sd)+').');
           drawNormalCurve(mu,sd,-Infinity,x,x);
         },
         tCalc:function(){
           clearErr('stx-t-err'); var t=n('stx-t-val'), df=n('stx-t-df'), a=n('stx-t-alpha'), tail=v('stx-t-tail');
-          if(!isFinite(t)||!isFinite(df)||df<=0||a<=0||a>=1) return err('stx-t-err','Check t, df, and alpha.');
+          if(!isFinite(t)||!isFinite(df)||df<=0||!isFinite(a)||a<=0||a>=1) return err('stx-t-err','Check t, df, and alpha.');
           var c=tCDF(t,df), p=pByTail(c,tail), crit=tail==='two'?qT(1-a/2,df):(tail==='left'?qT(a,df):qT(1-a,df));
           result('stx-t-res','t distribution results',[["CDF P(T≤t)",fmt(c)],["p-value",fmt(p)],["Critical t",fmt(crit)],["df",fmt(df,3)]],(tail==='two'?'Two-tailed':'One-tailed')+' calculation.');
           drawTCurve(t,df,tail);
         },
         chisqCalc:function(){
           clearErr('stx-c-err'); var x=n('stx-c-val'), df=n('stx-c-df'), a=n('stx-c-alpha');
-          if(!isFinite(x)||x<0||!isFinite(df)||df<=0||a<=0||a>=1) return err('stx-c-err','Check chi-square statistic, df, and alpha.');
+          if(!isFinite(x)||x<0||!isFinite(df)||df<=0||!isFinite(a)||a<=0||a>=1) return err('stx-c-err','Check chi-square statistic, df, and alpha.');
           var c=chiCDF(x,df), crit=qChi(1-a,df);
           result('stx-c-res','Chi-square results',[["CDF P(χ²≤x)",fmt(c)],["Right-tail p-value",fmt(1-c)],["Critical χ²",fmt(crit)],["df",fmt(df,3)]],'Most chi-square tests use the right-tail p-value.');
           drawChiCurve(x,df);
         },
         fCalc:function(){
           clearErr('stx-f-err'); var x=n('stx-f-val'), d1=n('stx-f-df1'), d2=n('stx-f-df2'), a=n('stx-f-alpha');
-          if(!isFinite(x)||x<0||!isFinite(d1)||d1<=0||!isFinite(d2)||d2<=0||a<=0||a>=1) return err('stx-f-err','Check F statistic, df1, df2, and alpha.');
+          if(!isFinite(x)||x<0||!isFinite(d1)||d1<=0||!isFinite(d2)||d2<=0||!isFinite(a)||a<=0||a>=1) return err('stx-f-err','Check F statistic, df1, df2, and alpha.');
           var c=fCDF(x,d1,d2), crit=qF(1-a,d1,d2);
           result('stx-f-res','F distribution results',[["CDF P(F≤x)",fmt(c)],["Right-tail p-value",fmt(1-c)],["Critical F",fmt(crit)],["df1, df2",fmt(d1,2)+', '+fmt(d2,2)]],'Most F tests use the right-tail p-value.');
           drawFCurve(x,d1,d2);
@@ -2175,7 +2175,7 @@
           clearErr('stx-d-err'); var dist=v('stx-d-dist'), x=Math.floor(n('stx-d-x'));
           if(!isFinite(x)||x<0) return err('stx-d-err','x must be a nonnegative integer.');
           if(dist==='binom'){
-            var N=Math.floor(n('stx-d-n')), p=n('stx-d-p'); if(!isFinite(N)||N<0||x>N||p<0||p>1) return err('stx-d-err','For binomial, use n ≥ 0, 0 ≤ p ≤ 1, and x ≤ n.');
+            var N=Math.floor(n('stx-d-n')), p=n('stx-d-p'); if(!isFinite(N)||N<0||x>N||!isFinite(p)||p<0||p>1) return err('stx-d-err','For binomial, use n ≥ 0, 0 ≤ p ≤ 1, and x ≤ n.');
             var exact=binomPMF(x,N,p), left=binomRange(0,x,N,p), right=binomRange(x,N,N,p);
             result('stx-d-res','Binomial results',[["P(X = x)",fmt(exact)],["P(X ≤ x)",fmt(left)],["P(X ≥ x)",fmt(right)],["Mean np",fmt(N*p)],["Variance np(1-p)",fmt(N*p*(1-p))],["n, p, x",N+', '+fmt(p)+', '+x]],'Exact binomial probabilities.');
             drawDiscrete('binom',x,N,p,NaN);
@@ -2196,14 +2196,14 @@
         },
         ciCalc:function(){
           clearErr('stx-ci-err'); var type=v('stx-ci-type'), conf=n('stx-ci-conf'), N=Math.floor(n('stx-ci-n')), method=v('stx-ci-method');
-          if(conf<=0||conf>=1||N<1) return err('stx-ci-err','Confidence must be between 0 and 1 and n must be positive.');
+          if(!isFinite(conf)||conf<=0||conf>=1||!isFinite(N)||N<1) return err('stx-ci-err','Confidence must be between 0 and 1 and n must be positive.');
           var a=1-conf;
           if(type==='mean'){
             var mean=n('stx-ci-mean'), sd=n('stx-ci-sd'); if(!isFinite(mean)||!isFinite(sd)||sd<=0||N<2) return err('stx-ci-err','For a mean CI, enter mean, positive SD, and n ≥ 2.');
             var crit=method==='t'?qT(1-a/2,N-1):normInv(1-a/2), se=sd/Math.sqrt(N), lo=mean-crit*se, hi=mean+crit*se;
             result('stx-ci-res','Confidence interval for mean',[["Lower",fmt(lo)],["Upper",fmt(hi)],["Margin of error",fmt(crit*se)],["Critical value",fmt(crit)],["SE",fmt(se)],["Method",method==='t'?'t, df='+(N-1):'z']],'CI = estimate ± critical × SE.');
           } else {
-            var x=Math.floor(n('stx-ci-x')); if(x<0||x>N) return err('stx-ci-err','For a proportion CI, successes x must be between 0 and n.');
+            var x=Math.floor(n('stx-ci-x')); if(!isFinite(x)||x<0||x>N) return err('stx-ci-err','For a proportion CI, successes x must be between 0 and n.');
             var ph=x/N, z=normInv(1-a/2), lo, hi;
             if(method==='z') { var se=Math.sqrt(ph*(1-ph)/N); lo=ph-z*se; hi=ph+z*se; }
             else { var denom=1+z*z/N, center=(ph+z*z/(2*N))/denom, half=z*Math.sqrt((ph*(1-ph)+z*z/(4*N))/N)/denom; lo=center-half; hi=center+half; }
@@ -2213,10 +2213,10 @@
         testCalc:function(){
           clearErr('stx-test-err'); var type=v('stx-test-type'), stat=n('stx-test-stat'), df=n('stx-test-df'), df2=n('stx-test-df2'), r=n('stx-test-r'), tail=v('stx-test-tail'), c,p;
           if(type==='z') { if(!isFinite(stat)) return err('stx-test-err','Enter a z statistic.'); c=normCDF(stat); p=pByTail(c,tail); result('stx-test-res','z test p-value',[["z",fmt(stat)],["CDF",fmt(c)],["p-value",fmt(p)],["Tail",tail]],'Two-tailed uses 2 × smaller tail area.'); }
-          else if(type==='t') { if(!isFinite(stat)||df<=0) return err('stx-test-err','Enter t statistic and positive df.'); c=tCDF(stat,df); p=pByTail(c,tail); result('stx-test-res','t test p-value',[["t",fmt(stat)],["df",fmt(df,3)],["CDF",fmt(c)],["p-value",fmt(p)]],''); }
-          else if(type==='chisq') { if(stat<0||df<=0) return err('stx-test-err','Enter nonnegative χ² statistic and positive df.'); c=chiCDF(stat,df); result('stx-test-res','χ² test p-value',[["χ²",fmt(stat)],["df",fmt(df,3)],["Right-tail p-value",fmt(1-c)],["CDF",fmt(c)]],'Chi-square tests are usually right-tailed.'); }
-          else if(type==='f') { if(stat<0||df<=0||df2<=0) return err('stx-test-err','Enter nonnegative F statistic, df1, and df2.'); c=fCDF(stat,df,df2); result('stx-test-res','F test p-value',[["F",fmt(stat)],["df1, df2",fmt(df,2)+', '+fmt(df2,2)],["Right-tail p-value",fmt(1-c)],["CDF",fmt(c)]],'F tests are usually right-tailed.'); }
-          else { if(r<=-1||r>=1||df<3) return err('stx-test-err','For correlation, enter r between -1 and 1 and n ≥ 3 in the df/n field.'); var N=df, t=r*Math.sqrt((N-2)/(1-r*r)); c=tCDF(t,N-2); p=2*Math.min(c,1-c); result('stx-test-res','Correlation test',[["r",fmt(r)],["n",N],["t statistic",fmt(t)],["df",N-2],["Two-tailed p-value",fmt(p)]],'Tests H0: ρ = 0 using t = r√((n−2)/(1−r²)).'); }
+          else if(type==='t') { if(!isFinite(stat)||!isFinite(df)||df<=0) return err('stx-test-err','Enter t statistic and positive df.'); c=tCDF(stat,df); p=pByTail(c,tail); result('stx-test-res','t test p-value',[["t",fmt(stat)],["df",fmt(df,3)],["CDF",fmt(c)],["p-value",fmt(p)]],''); }
+          else if(type==='chisq') { if(!isFinite(stat)||stat<0||!isFinite(df)||df<=0) return err('stx-test-err','Enter nonnegative χ² statistic and positive df.'); c=chiCDF(stat,df); result('stx-test-res','χ² test p-value',[["χ²",fmt(stat)],["df",fmt(df,3)],["Right-tail p-value",fmt(1-c)],["CDF",fmt(c)]],'Chi-square tests are usually right-tailed.'); }
+          else if(type==='f') { if(!isFinite(stat)||stat<0||!isFinite(df)||df<=0||!isFinite(df2)||df2<=0) return err('stx-test-err','Enter nonnegative F statistic, df1, and df2.'); c=fCDF(stat,df,df2); result('stx-test-res','F test p-value',[["F",fmt(stat)],["df1, df2",fmt(df,2)+', '+fmt(df2,2)],["Right-tail p-value",fmt(1-c)],["CDF",fmt(c)]],'F tests are usually right-tailed.'); }
+          else { if(!isFinite(r)||!isFinite(df)||r<=-1||r>=1||df<3) return err('stx-test-err','For correlation, enter r between -1 and 1 and n ≥ 3 in the df/n field.'); var N=df, t=r*Math.sqrt((N-2)/(1-r*r)); c=tCDF(t,N-2); p=2*Math.min(c,1-c); result('stx-test-res','Correlation test',[["r",fmt(r)],["n",N],["t statistic",fmt(t)],["df",N-2],["Two-tailed p-value",fmt(p)]],'Tests H0: ρ = 0 using t = r√((n−2)/(1−r²)).'); }
         },
         rocCalc:function(){
           clearErr('stx-roc-err'); var lines=String(v('stx-roc-data')).trim().split(/\n+/), pts=[];
