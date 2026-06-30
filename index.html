@@ -2137,6 +2137,8 @@
         reset:function(prefix){
           var r=document.getElementById(prefix+'-res'),e=document.getElementById(prefix+'-err');
           if(r)r.classList.remove('show');if(e)e.classList.remove('show');
+          var hist=document.getElementById('statx-history-list');
+          if(hist){hist.innerHTML='<div class="statx-history-item">Run any calculator to save the latest results here.</div>';}
         },
         copyResult:function(id){
           var el=E(id); if(!el)return; var txt=el.innerText||'';
