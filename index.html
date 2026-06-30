@@ -1584,7 +1584,7 @@
             <div class="statx-actions">
               <button type="button" class="statx-btn" onclick="STX.normalArea()">Calculate Area</button>
               <button type="button" class="statx-btn secondary" onclick="STX.normalCritical()">Find Critical Value</button>
-              <button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-normal-res')">Copy Result</button>
+              <button type="button" class="calc-reset" onclick="STX.reset('stx-normal')">Reset</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-normal-res')">Copy Result</button>
             </div>
             <div class="statx-error" id="stx-normal-err"></div>
             <div class="statx-result" id="stx-normal-res"></div>
@@ -1604,7 +1604,7 @@
               <div class="statx-visual-top"><strong>Live t density curve</strong><span>Tail shading follows your selected tail</span></div>
               <canvas class="statx-canvas" id="stx-t-chart" width="900" height="300" aria-label="t distribution density curve"></canvas>
             </div>
-            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.tCalc()">Calculate</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-t-res')">Copy Result</button></div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.tCalc()">Calculate</button><button type="button" class="calc-reset" onclick="STX.reset('stx-t')">Reset</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-t-res')">Copy Result</button></div>
             <div class="statx-error" id="stx-t-err"></div><div class="statx-result" id="stx-t-res"></div>
           </div>
 
@@ -1621,7 +1621,7 @@
               <div class="statx-visual-top"><strong>Live chi-square density</strong><span>Right tail is the usual chi-square p-value</span></div>
               <canvas class="statx-canvas" id="stx-c-chart" width="900" height="300" aria-label="Chi-square density curve"></canvas>
             </div>
-            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.chisqCalc()">Calculate</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-c-res')">Copy Result</button></div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.chisqCalc()">Calculate</button><button type="button" class="calc-reset" onclick="STX.reset('stx-c')">Reset</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-c-res')">Copy Result</button></div>
             <div class="statx-error" id="stx-c-err"></div><div class="statx-result" id="stx-c-res"></div>
           </div>
 
@@ -1639,7 +1639,7 @@
               <div class="statx-visual-top"><strong>Live F density</strong><span>Right tail is the usual F-test p-value</span></div>
               <canvas class="statx-canvas" id="stx-f-chart" width="900" height="300" aria-label="F distribution density curve"></canvas>
             </div>
-            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.fCalc()">Calculate</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-f-res')">Copy Result</button></div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.fCalc()">Calculate</button><button type="button" class="calc-reset" onclick="STX.reset('stx-f')">Reset</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-f-res')">Copy Result</button></div>
             <div class="statx-error" id="stx-f-err"></div><div class="statx-result" id="stx-f-res"></div>
           </div>
 
@@ -1658,7 +1658,7 @@
               <div class="statx-visual-top"><strong>Live probability bars</strong><span>PMF bars highlight the selected x value</span></div>
               <canvas class="statx-canvas" id="stx-d-chart" width="900" height="300" aria-label="Discrete probability bars"></canvas>
             </div>
-            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.discreteCalc()">Calculate</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-d-res')">Copy Result</button></div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.discreteCalc()">Calculate</button><button type="button" class="calc-reset" onclick="STX.reset('stx-d')">Reset</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-d-res')">Copy Result</button></div>
             <div class="statx-error" id="stx-d-err"></div><div class="statx-result" id="stx-d-res"></div>
           </div>
 
@@ -1671,7 +1671,7 @@
               <div class="statx-visual-top"><strong>Live data histogram</strong><span>Paste data and see the distribution shape</span></div>
               <canvas class="statx-canvas" id="stx-desc-chart" width="900" height="300" aria-label="Data histogram"></canvas>
             </div>
-            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.descCalc()">Summarize Data</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-desc-res')">Copy Result</button></div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.descCalc()">Summarize Data</button><button type="button" class="calc-reset" onclick="STX.reset('stx-desc')">Reset</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-desc-res')">Copy Result</button></div>
             <div class="statx-error" id="stx-desc-err"></div><div class="statx-result" id="stx-desc-res"></div>
           </div>
 
@@ -1687,7 +1687,7 @@
               <div class="statx-field"><label>Sample SD s</label><input id="stx-ci-sd" type="number" value="15" step="any"></div>
               <div class="statx-field"><label>Successes x</label><input id="stx-ci-x" type="number" value="15" min="0" step="1"><small>Used only when CI type = proportion</small></div>
             </div>
-            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.ciCalc()">Calculate CI</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-ci-res')">Copy Result</button></div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.ciCalc()">Calculate CI</button><button type="button" class="calc-reset" onclick="STX.reset('stx-ci')">Reset</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-ci-res')">Copy Result</button></div>
             <div class="statx-error" id="stx-ci-err"></div><div class="statx-result" id="stx-ci-res"></div>
           </div>
 
@@ -1702,7 +1702,7 @@
               <div class="statx-field"><label>Correlation r</label><input id="stx-test-r" type="number" value="0.30" step="any" min="-0.999" max="0.999"></div>
               <div class="statx-field"><label>Tail</label><select id="stx-test-tail"><option value="two" selected>Two-tailed</option><option value="right">Right-tail</option><option value="left">Left-tail</option></select></div>
             </div>
-            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.testCalc()">Calculate p-value</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-test-res')">Copy Result</button></div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.testCalc()">Calculate p-value</button><button type="button" class="calc-reset" onclick="STX.reset('stx-test')">Reset</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-test-res')">Copy Result</button></div>
             <div class="statx-error" id="stx-test-err"></div><div class="statx-result" id="stx-test-res"></div>
           </div>
 
@@ -1720,7 +1720,7 @@
               <div class="statx-visual-top"><strong>Live ROC curve</strong><span>Curve updates from pasted FPR/TPR pairs</span></div>
               <canvas class="statx-canvas" id="stx-roc-chart" width="900" height="300" aria-label="ROC curve chart"></canvas>
             </div>
-            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.rocCalc()">Calculate AUC</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-roc-res')">Copy Result</button></div>
+            <div class="statx-actions"><button type="button" class="statx-btn" onclick="STX.rocCalc()">Calculate AUC</button><button type="button" class="calc-reset" onclick="STX.reset('stx-roc')">Reset</button><button type="button" class="statx-btn secondary" onclick="STX.copyResult('stx-roc-res')">Copy Result</button></div>
             <div class="statx-error" id="stx-roc-err"></div><div class="statx-result" id="stx-roc-res"></div>
           </div>
 
