@@ -56,10 +56,10 @@
     /* ── NAV ─────────────────────────────────────────────────────────── */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-      background: rgba(135,206,235,0.97);
+      background: rgba(7,24,40,0.97);
       backdrop-filter: blur(14px);
       border-bottom: 2px solid var(--gold);
-      box-shadow: 0 2px 24px rgba(0,100,160,0.20);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.45);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 2.5rem;
       height: 118px;
@@ -75,12 +75,12 @@
       border-radius: 16px; flex-shrink: 0;
       box-shadow: 0 0 0 4px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 45px rgba(255,255,255,1), 0 0 90px rgba(255,255,255,.95), 0 0 160px rgba(255,248,220,.85), 0 0 260px rgba(255,235,180,.60), 0 0 380px rgba(255,220,140,.35), inset 0 0 18px rgba(255,255,255,.6);
     }
-    .nav-brand span { color: #0a2a4a; }
+    .nav-brand span { color: rgba(255,255,255,0.92); }
     .nav-links { display: flex; gap: 0.15rem; }
     .nav-links a {
       padding: 0.42rem 0.7rem; border-radius: 4px;
       font-size: 0.74rem; letter-spacing: 0.09em; text-transform: uppercase;
-      color: #0a2a4a; font-weight: 600; transition: color .25s, background .25s;
+      color: rgba(255,255,255,0.85); font-weight: 600; transition: color .25s, background .25s;
     }
     .nav-links a:hover { color: var(--gold); background: rgba(184,134,11,0.18); }
     .nav-toggle {
@@ -477,8 +477,8 @@
 
     /* ── FOOTER ──────────────────────────────────────────────────────── */
     footer {
-      background: #87CEEB; border-top: 2px solid rgba(0,100,160,0.25);
-      text-align: center; padding: 2rem; color: #0a2a4a; font-size: 0.82rem; font-weight: 600;
+      background: #071828; border-top: 2px solid rgba(212,160,23,0.30);
+      text-align: center; padding: 2rem; color: rgba(255,255,255,0.80); font-size: 0.82rem; font-weight: 500;
     }
     .footer-logo {
       width: 104px; height: 104px; object-fit: cover;
@@ -486,7 +486,7 @@
       border-radius: 16px; margin: 0 auto 0.75rem;
       box-shadow: 0 0 0 4px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 45px rgba(255,255,255,1), 0 0 90px rgba(255,255,255,.95), 0 0 160px rgba(255,248,220,.85), 0 0 260px rgba(255,235,180,.60), 0 0 380px rgba(255,220,140,.35), inset 0 0 18px rgba(255,255,255,.6);
     }
-    footer a { color: var(--forest); }
+    footer a { color: #4fd1c5; }
 
     /* ── SCROLL UP ───────────────────────────────────────────────────── */
     .scroll-top {
@@ -509,7 +509,7 @@
       .nav-links {
         display: none; flex-direction: column; position: absolute;
         top: 118px; left: 0; right: 0;
-        background: rgba(135,206,235,0.98); padding: 1rem;
+        background: rgba(7,24,40,0.98); padding: 1rem;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       }
       .nav-links.open { display: flex; }
