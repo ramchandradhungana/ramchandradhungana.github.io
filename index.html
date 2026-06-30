@@ -54,8 +54,18 @@
     a { text-decoration: none; color: inherit; }
 
     /* ── NAV ─────────────────────────────────────────────────────────── */
+    #clock-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 901;
+      background: rgba(7,24,40,0.97);
+      border-bottom: 1px solid rgba(184,134,11,0.25);
+      text-align: center; padding: .28rem 0;
+    }
+    #live-clock {
+      font-size: .72rem; font-weight: 600; letter-spacing: .05em;
+      color: var(--gold); font-family: monospace;
+    }
     .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      position: fixed; top: 28px; left: 0; right: 0; z-index: 900;
       background: rgba(7,24,40,0.97);
       backdrop-filter: blur(14px);
       border-bottom: 2px solid var(--gold);
@@ -957,6 +967,7 @@
 <body>
 
   <!-- ── NAVIGATION ──────────────────────────────────────────────── -->
+  <div id="clock-bar"><span id="live-clock"></span></div>
   <nav class="nav" id="top">
     <a class="nav-brand" href="#top"><img class="nav-logo" src="assets/yamuna-logo.gif.gif" alt="Yamuna animated logo"><span>Ram Chandra Dhungana</span></a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false" id="navToggle">
@@ -1831,6 +1842,26 @@
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ─── LIVE CLOCK ───
+  function updateClock() {
+    var now = new Date();
+    var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var d = days[now.getDay()];
+    var mo = months[now.getMonth()];
+    var dt = now.getDate();
+    var yr = now.getFullYear();
+    var h = now.getHours();
+    var m = String(now.getMinutes()).padStart(2,'0');
+    var s = String(now.getSeconds()).padStart(2,'0');
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    document.getElementById('live-clock').textContent =
+      d + ', ' + mo + ' ' + dt + ', ' + yr + ' · ' + h + ':' + m + ':' + s + ' ' + ampm;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
 
     const toggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
