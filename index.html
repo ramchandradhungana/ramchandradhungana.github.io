@@ -113,17 +113,12 @@
       font-size: 1rem; letter-spacing: 0.06em; font-weight: 700;
       color: var(--gold); text-transform: uppercase; white-space: nowrap;
     }
-    @keyframes floatBob {
-      0%,100% { transform: translateY(0px); }
-      50%     { transform: translateY(-8px); }
-    }
     @keyframes pulseGlow {
       0%,100% { box-shadow: 0 0 0 2px rgba(255,255,255,.95), 0 0 18px rgba(255,255,255,.95), 0 0 48px rgba(255,255,255,.70); }
       50%     { box-shadow: 0 0 0 4px rgba(255,255,255,1), 0 0 35px rgba(255,255,255,1), 0 0 90px rgba(255,248,220,.95), 0 0 180px rgba(255,235,180,.65); }
     }
     .logo-ring-wrap {
       display: inline-block;
-      animation: floatBob 3s ease-in-out infinite;
       transition: transform .3s ease;
     }
     .logo-ring-wrap:hover { transform: scale(1.1); }
