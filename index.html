@@ -479,6 +479,41 @@
     .btn-c-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.45); }
     .btn-c-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 
+    /* Press-down effect for email buttons specifically */
+    .btn-email-press:hover {
+      transform: scale(0.93) translateY(3px) !important;
+      box-shadow: inset 0 4px 12px rgba(0,0,0,0.4) !important;
+      filter: brightness(0.82);
+    }
+    .btn-email-press:active {
+      transform: scale(0.89) translateY(4px) !important;
+      filter: brightness(0.68);
+    }
+    /* Footer email link hover */
+    .footer-email-link {
+      transition: all .15s ease;
+    }
+    .footer-email-link:hover {
+      opacity: 0.75;
+      text-decoration: underline;
+    }
+    /* Pill button style for footer links */
+    .footer-pill {
+      display: inline-block;
+      padding: .18rem .75rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,215,0,.5);
+      transition: background .15s ease, border-color .15s ease;
+      text-shadow: none !important;
+      color: #FFD700 !important;
+      font-size: .8rem;
+    }
+    .footer-pill:hover {
+      background: rgba(255,215,0,.18);
+      border-color: #FFD700;
+      opacity: 1 !important;
+    }
+
     .contact-form-wrap {
       background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
       border-radius: 16px; padding: 2.5rem; text-align: left;
@@ -607,7 +642,8 @@
     .calc-subtitle { text-align:center; color:rgba(255,255,255,.4); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:2rem; font-style:italic; }
     .calc-tabs-wrap { display:flex; flex-wrap:wrap; gap:.45rem; justify-content:center; margin-bottom:2rem; }
     .calc-tab { padding:.42rem 1rem; border-radius:30px; cursor:pointer; font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; background:rgba(255,255,255,.06); border:1.5px solid rgba(255,255,255,.18); color:rgba(255,255,255,.7); transition:all .25s; }
-    .calc-tab:hover { background:rgba(0,212,255,.1); border-color:rgba(0,212,255,.5); color:#00d4ff; }
+    .calc-tab:hover { background:rgba(0,212,255,.1); border-color:rgba(0,212,255,.5); color:#00d4ff; transform:scale(0.94) translateY(3px); box-shadow:inset 0 3px 8px rgba(0,0,0,0.3); }
+    .calc-tab:active { transform:scale(0.91) translateY(5px); }
     .calc-tab.active { background:linear-gradient(135deg,rgba(0,212,255,.2),rgba(184,134,11,.2)); border-color:#00d4ff; color:#00d4ff; box-shadow:0 0 18px rgba(0,212,255,.3); }
     .calc-panel { display:none; animation:cFadeIn .35s ease; }
     .calc-panel.active { display:block; }
@@ -623,9 +659,11 @@
     .calc-field select option { background:#1a1040; color:#fff; }
     .calc-btn-row { display:flex; gap:.9rem; justify-content:center; margin-bottom:1.6rem; flex-wrap:wrap; }
     .calc-btn { background:linear-gradient(135deg,#00d4ff,#0099cc); color:#0F0C29; padding:.72rem 2.2rem; border:none; border-radius:30px; font-size:.9rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; transition:transform .2s,box-shadow .2s; box-shadow:0 5px 22px rgba(0,212,255,.32); }
-    .calc-btn:hover { transform:translateY(-2px); box-shadow:0 9px 30px rgba(0,212,255,.48); }
+    .calc-btn:hover { transform:scale(0.94) translateY(3px); box-shadow:inset 0 4px 12px rgba(0,0,0,0.35); filter:brightness(0.85); }
+    .calc-btn:active { transform:scale(0.91) translateY(5px); filter:brightness(0.72); }
     .calc-reset { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); padding:.72rem 1.6rem; border:1.5px solid rgba(255,255,255,.2); border-radius:30px; font-size:.86rem; font-weight:600; cursor:pointer; transition:all .2s; }
-    .calc-reset:hover { background:rgba(255,255,255,.14); color:#fff; }
+    .calc-reset:hover { background:rgba(255,255,255,.14); color:#fff; transform:scale(0.94) translateY(3px); box-shadow:inset 0 3px 8px rgba(0,0,0,0.28); }
+    .calc-reset:active { transform:scale(0.91) translateY(5px); }
     .calc-result { background:linear-gradient(135deg,rgba(0,212,255,.07),rgba(184,134,11,.07)); border:1px solid rgba(0,212,255,.28); border-radius:16px; padding:1.7rem; text-align:center; display:none; animation:rPop .45s cubic-bezier(.34,1.56,.64,1); }
     .calc-result.show { display:block; }
     @keyframes rPop { from{opacity:0;transform:scale(.86)} to{opacity:1;transform:scale(1)} }
@@ -854,7 +892,8 @@
   color:#100414; background: linear-gradient(135deg,#ff3aa6,#ffd27a 52%,#00ffd1);
   box-shadow: 0 10px 30px rgba(255,58,166,.28); transition: transform .18s, box-shadow .18s, filter .18s;
 }
-.statx-btn:hover { transform: translateY(-2px); box-shadow:0 14px 38px rgba(0,255,209,.26); filter:brightness(1.05); }
+.statx-btn:hover { transform:scale(0.94) translateY(3px); box-shadow:inset 0 4px 12px rgba(0,0,0,0.35); filter:brightness(0.85); }
+.statx-btn:active { transform:scale(0.91) translateY(5px); filter:brightness(0.72); }
 .statx-btn.secondary { color:rgba(255,255,255,.72); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); box-shadow:none; }
 .statx-result {
   display:none; margin-top: 1rem; border-radius: 18px; padding: 1.1rem;
@@ -974,7 +1013,13 @@
   box-shadow: 0 12px 34px rgba(255,58,166,.34), 0 0 22px rgba(0,255,209,.16) !important;
 }
 .statx-btn:hover {
-  box-shadow: 0 16px 42px rgba(0,255,209,.30), 0 0 28px rgba(255,210,122,.18) !important;
+  transform: scale(0.94) translateY(3px) !important;
+  box-shadow: inset 0 4px 12px rgba(0,0,0,0.35) !important;
+  filter: brightness(0.85) !important;
+}
+.statx-btn:active {
+  transform: scale(0.91) translateY(5px) !important;
+  filter: brightness(0.72) !important;
 }
 .statx-btn.secondary {
   color: #ffffff !important;
@@ -987,6 +1032,11 @@
   background: rgba(255,255,255,.22) !important;
   border-color: rgba(0,255,209,.58) !important;
   color: #ffffff !important;
+  transform: scale(0.94) translateY(3px) !important;
+  box-shadow: inset 0 3px 8px rgba(0,0,0,0.28) !important;
+}
+.statx-btn.secondary:active {
+  transform: scale(0.91) translateY(5px) !important;
 }
 .statx-field label {
   color: #f2f6ff !important;
@@ -1860,8 +1910,8 @@
 
       <!-- Contact buttons below form -->
       <div class="contact-btns" style="margin-top:2rem;margin-bottom:0;">
-        <a class="btn-contact btn-c-gold" href="https://mail.google.com/mail/?view=cm&to=r0dhun01@louisville.edu" target="_blank">r0dhun01@louisville.edu</a>
-        <a class="btn-contact btn-c-outline" href="https://mail.google.com/mail/?view=cm&to=ramchandradhungana@gmail.com" target="_blank">Gmail</a>
+        <a class="btn-contact btn-c-gold btn-email-press" href="https://mail.google.com/mail/?view=cm&to=r0dhun01@louisville.edu" target="_blank">UofL Email</a>
+        <a class="btn-contact btn-c-outline btn-email-press" href="https://mail.google.com/mail/?view=cm&to=ramchandradhungana@gmail.com" target="_blank">Gmail</a>
         <a class="btn-contact btn-c-outline" href="https://www.linkedin.com/in/ram-chandra-dhungana-25a455139/" target="_blank">LinkedIn</a>
         <a class="btn-contact btn-c-outline" href="https://ramchandradhungana.github.io" target="_blank">GitHub Pages</a>
         <a class="btn-contact btn-c-outline" href="assets/Ram-Chandra-Dhungana-Resume.pdf" target="_blank">Resume PDF</a>
@@ -1871,9 +1921,11 @@
 
   <footer>
     <p>&copy; <span id="yr"></span> Ram Chandra Dhungana &nbsp;&middot;&nbsp;
-    <a href="https://ramchandradhungana.github.io">ramchandradhungana.github.io</a>
+    <a class="footer-pill" href="https://ramchandradhungana.github.io">GitHub</a>
     &nbsp;&middot;&nbsp;
-    <a href="https://mail.google.com/mail/?view=cm&to=r0dhun01@louisville.edu" target="_blank">r0dhun01@louisville.edu</a>
+    <a class="footer-pill" href="https://mail.google.com/mail/?view=cm&to=r0dhun01@louisville.edu" target="_blank">UofL Email</a>
+    &nbsp;&middot;&nbsp;
+    <a class="footer-pill" href="https://mail.google.com/mail/?view=cm&to=ramchandradhungana@gmail.com" target="_blank">Gmail</a>
     &nbsp;&middot;&nbsp; Biostatistics PhD Candidate, University of Louisville &nbsp;&middot;&nbsp;
     <a href="privacy.html">Privacy Policy</a></p>
   </footer>
