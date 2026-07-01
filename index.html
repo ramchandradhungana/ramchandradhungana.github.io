@@ -2149,13 +2149,23 @@
       }
       function erf(x){
         if(x===0)return 0;
-        var sign=x<0?-1:1; x=Math.abs(x);
-        if(x>6)return sign;
-        var x2=x*x,sum=x,term=x;
-        for(var n=1;n<=60;n++){term*=-x2/n;sum+=term/(2*n+1);if(Math.abs(term/(2*n+1))<Math.abs(sum)*5e-16)break;}
-        return sign*sum*2/Math.sqrt(Math.PI);
+        var sign=x<0?-1:1; var ax=Math.abs(x),x2=ax*ax;
+        if(ax>=4){
+          var sum=1,term=1,prev;
+          for(var n=1;n<=30;n++){prev=term;term*=-(2*n-1)/(2*x2);if(Math.abs(term)>=Math.abs(prev))break;sum+=term;}
+          return sign*(1-Math.exp(-x2)/(ax*Math.sqrt(Math.PI))*sum);
+        }
+        var s=ax,t=ax;
+        for(var n=1;n<=60;n++){t*=-x2/n;s+=t/(2*n+1);if(Math.abs(t/(2*n+1))<Math.abs(s)*5e-16)break;}
+        return sign*s*2/Math.sqrt(Math.PI);
       }
-      function normCDF(x){return 0.5*(1+erf(x/Math.SQRT2));}
+      function normCDF(x){
+        var t=x/Math.SQRT2;
+        if(t>=0)return 0.5*(1+erf(t));
+        var ax=-t,x2=ax*ax;
+        if(ax>=4){var sum=1,term=1,prev;for(var n=1;n<=30;n++){prev=term;term*=-(2*n-1)/(2*x2);if(Math.abs(term)>=Math.abs(prev))break;sum+=term;}return 0.5*Math.exp(-x2)/(ax*Math.sqrt(Math.PI))*sum;}
+        var s=ax,ts=ax;for(var n=1;n<=60;n++){ts*=-x2/n;s+=ts/(2*n+1);if(Math.abs(ts/(2*n+1))<Math.abs(s)*5e-16)break;}return 0.5*(1-s*2/Math.sqrt(Math.PI));
+      }
       function normInv(p){
         var a=[-39.69683028665376,220.9460984245205,-275.9285104469687,138.357751867269,-30.66479806614716,2.506628277459239];
         var b=[-54.47609879822406,161.5858368580409,-155.6989798598866,66.80131188771972,-13.28068155288572];
