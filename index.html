@@ -158,7 +158,7 @@
     .hero-bg {
       position: absolute; inset: 0;
       background-image: url('assets/buddha-everest.jpg');
-      background-size: cover; background-position: center 30%;
+      background-size: cover; background-position: center 38%;
       background-repeat: no-repeat;
     }
     .hero-overlay {
@@ -219,6 +219,7 @@
 
     .hero-map-wrap {
       display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
+      margin-top: 1.5rem;
     }
     .hero-map-label {
       font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
@@ -364,7 +365,7 @@
     }
     .cv-tab {
       padding: 0.9rem 2rem; background: none; border: none;
-      color: var(--dim); font-size: 0.82rem; letter-spacing: 0.12em;
+      color: rgba(26,36,32,0.8); font-size: 0.82rem; letter-spacing: 0.12em;
       text-transform: uppercase; cursor: pointer;
       border-bottom: 3px solid transparent; margin-bottom: -2px;
       white-space: nowrap; transition: color .25s, border-color .25s;
@@ -456,7 +457,7 @@
       display: inline-block; margin-top: 1rem;
       padding: 0.25rem 0.8rem; border-radius: 20px;
       font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
-      background: var(--gold-pale); color: var(--gold);
+      background: var(--gold); color: #FFFFFF;
     }
 
     /* ── CONTACT FORM ────────────────────────────────────────────────── */
@@ -470,6 +471,10 @@
     }
     .contact-inner { position: relative; z-index:1; max-width: 800px; margin: 0 auto; }
     .contact-section .eyebrow { color: var(--gold-light); }
+    /* Contrast fix: gold eyebrow text is hard to read on these light pastel section backgrounds */
+    #about .eyebrow, #research .eyebrow, #publications .eyebrow, #cv .eyebrow, #credentials .eyebrow {
+      color: var(--forest);
+    }
     .contact-section h2 { font-size: 2.5rem; color: var(--white); margin-bottom: 0.75rem; }
     .contact-intro { color: rgba(255,255,255,0.8); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.5rem; }
 
@@ -1104,9 +1109,9 @@
           rigorous methodology with real-world clinical impact.
         </p>
         <div class="hero-btns">
-          <a class="btn btn-gold" href="#cv">View CV</a>
-          <a class="btn btn-outline" href="assets/Ram-Chandra-Dhungana-Resume.pdf" target="_blank">Download Resume</a>
-          <a class="btn btn-outline" href="#contact">Contact Me</a>
+          <a class="btn btn-gold btn-email-press" href="#cv">View CV</a>
+          <a class="btn btn-outline btn-email-press" href="assets/Ram-Chandra-Dhungana-Resume.pdf" target="_blank">Download Resume</a>
+          <a class="btn btn-outline btn-email-press" href="#contact">Contact Me</a>
         </div>
       </div>
       <div class="hero-map-wrap">
@@ -2015,9 +2020,9 @@
       <div class="contact-btns" style="margin-top:2rem;margin-bottom:0;">
         <a class="btn-contact btn-c-gold btn-email-press" href="https://mail.google.com/mail/?view=cm&to=r0dhun01@louisville.edu" target="_blank">UofL Email</a>
         <a class="btn-contact btn-c-outline btn-email-press" href="https://mail.google.com/mail/?view=cm&to=ramchandradhungana@gmail.com" target="_blank">Gmail</a>
-        <a class="btn-contact btn-c-outline" href="https://www.linkedin.com/in/ram-chandra-dhungana-25a455139/" target="_blank">LinkedIn</a>
-        <a class="btn-contact btn-c-outline" href="https://ramchandradhungana.github.io" target="_blank">GitHub Pages</a>
-        <a class="btn-contact btn-c-outline" href="assets/Ram-Chandra-Dhungana-Resume.pdf" target="_blank">Resume PDF</a>
+        <a class="btn-contact btn-c-outline btn-email-press" href="https://www.linkedin.com/in/ram-chandra-dhungana-25a455139/" target="_blank">LinkedIn</a>
+        <a class="btn-contact btn-c-outline btn-email-press" href="https://ramchandradhungana.github.io" target="_blank">GitHub Pages</a>
+        <a class="btn-contact btn-c-outline btn-email-press" href="assets/Ram-Chandra-Dhungana-Resume.pdf" target="_blank">Resume PDF</a>
       </div>
     </div>
   </div>
